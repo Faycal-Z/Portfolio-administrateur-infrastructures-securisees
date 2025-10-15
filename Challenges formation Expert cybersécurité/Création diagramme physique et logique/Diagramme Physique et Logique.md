@@ -12,5 +12,5 @@
 
 ## Diagramme Logique
 
-![Diagramme-logique](./images/diagramme_logique_dom.drawio(1).png)
+![Diagramme-logique](./images/diagramme_logique_dom.png)
 
