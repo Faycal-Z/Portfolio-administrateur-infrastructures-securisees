@@ -11,5 +11,7 @@ Installation sur une Machine virtuelle Window 11:
 ![Logiciels_installés](./images/Applications_installees.png)
 ---
 ## Document, tableur et présentation avec Libre Office:
-
+![Document_writer](./images/Document_writer_libre_office.png)
+![Tableur_calc](./images/Tableur_calc_libre_office.png)
+![Presentation_impress](./images/Presentation_impress_libre_office.png)
 
