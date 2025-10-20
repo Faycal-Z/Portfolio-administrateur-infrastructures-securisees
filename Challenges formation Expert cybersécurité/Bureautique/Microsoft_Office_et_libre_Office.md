@@ -8,3 +8,8 @@
 ---
 ## Installation de Microsoft Office et Libre Office
 Installation sur une Machine virtuelle Window 11: 
+![Logiciels_installés](./images/Applications_installees.png)
+---
+## Document, tableur et présentation avec Libre Office:
+
+
