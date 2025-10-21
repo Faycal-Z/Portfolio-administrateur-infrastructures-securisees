@@ -12,7 +12,7 @@ Dans réglages de la machine virtuelle, puis réseau j'ai selectionné l'option 
 
 ![Accesparpont](./images/Reglage_Reseau_VirtualBox.png)
 
-Etant de base connecté à un répteur wifi, j'ai connecté mon hote directement en wifi à la BOX.
+Etant de base connecté à un répéteur wifi, j'ai connecté mon hote directement en wifi à la BOX.
 
 ---
 
@@ -24,7 +24,7 @@ La commande "ipconfig" m'a permis de connaitre l'adresse IP de la VM et le ping 
 
 
 
- ## Pour les machines virtuelles Ubuntu et Debian:
+ ## Bonus pour les machines virtuelles Ubuntu et Debian:
 
 - La commande "ip a"  m'a permis de connaitre l'adresse IP de la VM et le ping à partir de l'hote vers la machine virtuelle fonctionne avec succès:
 
