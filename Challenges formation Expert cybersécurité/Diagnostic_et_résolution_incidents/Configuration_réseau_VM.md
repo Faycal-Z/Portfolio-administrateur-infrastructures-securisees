@@ -10,6 +10,8 @@ En d’autres termes, vous devez configurer votre environnement de manière à r
 
 Dans réglages de la machine virtuelle, puis réseau j'ai selectionné l'option "accès par pont" et j'ai selectionné la carte réseau de ma machine Hote. Exemple avec Windows 11
 
+![Accesparpont](./images/Reglage_Reseau_Virtualbox.png)
+
 Etant de base connecté à un répteur wifi, j'ai connecté mon hote directement en wifi à la BOX.
 
 ---
