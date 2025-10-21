@@ -21,8 +21,12 @@ Etant de base connecté à un répéteur wifi, j'ai connecté mon hote directeme
   ![Par-feu](./images/Par_feu_Windows_11.png)
 
 La commande "ipconfig" m'a permis de connaitre l'adresse IP de la VM et le ping à partir de l'hote vers la machine virtuelle fonctionne avec succès :
-
-
+Windows 10:
+![IP_windows10](./images/IP_Windows10.png)
+![Ping_windows10](./images/Ping_Windows10.png)
+Windows 11:
+![IP_windows11](./images/IP_Windows11.png)
+![Ping_windows11](./images/Ping_Windows11.png)
 
  ## Bonus pour les machines virtuelles Ubuntu et Debian:
 
