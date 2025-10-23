@@ -45,7 +45,9 @@ Retrouve et restaure ces fichiers pour elle.
 
 ---
 
-# Installation de la machine virtuelle VirtualBox :
+# Installation de la machine virtuelle VirtualBox 
+Lors du démarrage de l'ordinateur on a cet écran qui s'affiche:
+
 
 # Étape 1 : Réparer le démarrage de Windows
 J'ai inseré le fichier iso de Windows et j'ai redémarré l'ordinateur.
@@ -58,21 +60,22 @@ Dépannage, puis invite de commandes:
 J'ai été dans diskpart pour voir les volumes disponibles.
 J'ai selectionné volume principal E:
 J'ai tapé la commande bcdboot E:\Windows /s C: /l fr-fr afin de récupérer les fichiers de démarrage présents dans E: et les installer dans la partition de démarrage C:
-
 Enfin j'ai tapé la commande bootrec /rebuildbcd pour verifier que l'installation était réussie.
+
+
 
 Ensuite au redémarrage j'obtiens l'erreur 0xc000000f :
 
 
 
-Dans le terminal, j'ai tapé la commande sfc /scannow /offbootdir=C: /offwindir=E:\Windows pour effectuer un scan du disque E: :
+J'ai été dans dépannage et j'ai lancé l'outil de réparation Windows puis j'ai redémarré, Windows s'est lancé:
 
-
-J'ai redémarré et Windows s'est lancé.
 
 # Étape 2 : Restaurer les performances normales de la machine :
 
 Je constate que le processeur est trop utilisé dans le gestionnaire de taches (une fenetre de commande powershell "ping" se lance au démarrage). Dans le gestionnaire des taches, j'ai désactivé Powershell. Ensuite j'ai été dans le fichier de démarrage et j'ai supprimé le raccourci "ping" ainsi que le script dans le dossier Windows:
+
+
 
 # Étape 3 : Vérifier l’état des disques durs :
 Dans le gestionnaire de disques j'ai remis le disque en ligne et j'ai redémarré:
