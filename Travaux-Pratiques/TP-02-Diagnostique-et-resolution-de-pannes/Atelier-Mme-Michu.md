@@ -46,7 +46,7 @@ Retrouve et restaure ces fichiers pour elle.
 ---
 
 # Installation de la machine virtuelle VirtualBox 
-Lors du démarrage de l'ordinateur on a cet écran qui s'affiche:
+Lors du démarrage de l'ordinateur cet écran s'affiche:
 ![Démarrage](./images/1-démarrage.png)
 
 
@@ -54,14 +54,14 @@ Lors du démarrage de l'ordinateur on a cet écran qui s'affiche:
 J'ai inseré le fichier iso de Windows et j'ai redémarré l'ordinateur.
 ![Démarrage](./images/2-Windows.png)
 
-J'ai cliqué sur suivant puis réparer l'ordinateur: 
+J'ai cliqué sur suivant puis sur réparer l'ordinateur: 
 ![Démarrage](./images/3-Windows.png)
 
 Dépannage, puis invite de commandes:
-J'ai été dans diskpart pour voir les volumes disponibles.
-J'ai selectionné volume principal E:
-J'ai tapé la commande bcdboot E:\Windows /s C: /l fr-fr afin de récupérer les fichiers de démarrage présents dans E: et les installer dans la partition de démarrage C:
-Enfin j'ai tapé la commande bootrec /rebuildbcd pour verifier que l'installation était réussie.
+* J'ai été dans diskpart pour voir les volumes disponibles.
+* J'ai selectionné volume principal E:
+* J'ai tapé la commande bcdboot E:\Windows /s C: /l fr-fr afin de récupérer les fichiers de démarrage présents dans E: et les installer dans la partition de démarrage C:
+* Enfin j'ai tapé la commande bootrec /rebuildbcd pour verifier que l'installation était réussie.
 ![Commande](./images/4-Invite-de-commande.png)
 ![Commande](./images/5-DiskPart.png)
 ![Commande](./images/6-Commandes.png)
