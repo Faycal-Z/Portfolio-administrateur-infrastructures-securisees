@@ -19,11 +19,35 @@ Tu n’auras pas besoin de mot de passe que ce soit pour lancer le fichier OVA o
 
 Prends ton temps et suis les étapes dans l’ordre !
 
+## Étape 1 : Réparer le démarrage de Windows
+Problème rencontré : L’ordinateur de Madame Michu refuse de démarrer correctement, avec des messages tels que « BootMGR est manquant » ET « Winload.exe introuvable », son petit-fils a testé des trucs, donc il n’y a plus les messages mais le problème est le même, donc ne t’en fais pas si tu ne vois pas les mêmes messages !
+
+Si je peux te donner un conseil, fais attention aux partitions et également au lecteur, si tu avances dans ton diagnostic, peut-être que tu vas t’emmêler les pinceaux avec le C: D: E: F: G: etc… donc prends le temps de bien repérer ton lecteur !
+
+Résous ce problème pour permettre à Windows de démarrer normalement.
+
+## Étape 2 : Restaurer les performances normales de la machine
+Problème rencontré : Une fois sur le Bureau, Madame Michu constate que son processeur et sa RAM sont utilisés à 100 %, rendant l’ordinateur très lent.
+
+Diagnostique et résous ce problème pour restaurer les performances optimales.
+
+Il y a plusieurs solutions je pense, mais si tu arrives à restaurer les performances de son PC, l’étape est réussie !
+
+## Étape 3 : Vérifier l’état des disques durs
+Problème rencontré : Madame Michu s’inquiète de l’état de ses disques durs. Oui, elle a 2 disques d’après ce qu’elle m’a dit, à vérifier donc si tout va bien de ce côté-là.
+
+Vérifie les disques pour détecter d’éventuels problèmes et corrige-les si nécessaire.
+
+## Étape 4 : Retrouver les fichiers disparus dans le dossier « Images »
+Problème rencontré : Des fichiers ont mystérieusement disparu dans le dossier « Images » de Madame Michu.
+
+Retrouve et restaure ces fichiers pour elle.
+
 ---
 
 # Installation de la machine virtuelle VirtualBox :
 
-## Étape 1 : Réparer le démarrage de Windows
+# Étape 1 : Réparer le démarrage de Windows
 J'ai inseré le fichier iso de Windows et j'ai redémarré l'ordinateur.
 
 
@@ -38,6 +62,34 @@ J'ai tapé la commande bcdboot E:\Windows /s C: /l fr-fr afin de récupérer les
 Enfin j'ai tapé la commande bootrec /rebuildbcd pour verifier que l'installation était réussie.
 
 Ensuite au redémarrage j'obtiens l'erreur 0xc000000f :
+
+
+
+Dans le terminal, j'ai tapé la commande sfc /scannow /offbootdir=C: /offwindir=E:\Windows pour effectuer un scan du disque E: :
+
+
+J'ai redémarré et Windows s'est lancé.
+
+# Étape 2 : Restaurer les performances normales de la machine :
+
+Je constate que le processeur est trop utilisé dans le gestionnaire de taches (une fenetre de commande powershell "ping" se lance au démarrage). Dans le gestionnaire des taches, j'ai désactivé Powershell. Ensuite j'ai été dans le fichier de démarrage et j'ai supprimé le raccourci "ping" ainsi que le script dans le dossier Windows:
+
+# Étape 3 : Vérifier l’état des disques durs :
+Dans le gestionnaire de disques j'ai remis le disque en ligne et j'ai redémarré:
+
+
+
+# Étape 4 : Retrouver les fichiers disparus dans le dossier « Images » :
+
+J'ai été dans le dossier images, clic droit propriétés et versions précédentes, restaurer. Le fichier "York" est désormais présent: 
+
+
+
+
+
+
+
+
 
 
 
