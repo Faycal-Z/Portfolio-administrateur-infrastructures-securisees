@@ -47,38 +47,47 @@ Retrouve et restaure ces fichiers pour elle.
 
 # Installation de la machine virtuelle VirtualBox 
 Lors du démarrage de l'ordinateur on a cet écran qui s'affiche:
+![Démarrage](./images/1-démarrage.png)
 
 
 # Étape 1 : Réparer le démarrage de Windows
 J'ai inseré le fichier iso de Windows et j'ai redémarré l'ordinateur.
-
+![Démarrage](./images/2-Windows.png)
 
 J'ai cliqué sur suivant puis réparer l'ordinateur: 
-
+![Démarrage](./images/3-Windows.png)
 
 Dépannage, puis invite de commandes:
 J'ai été dans diskpart pour voir les volumes disponibles.
 J'ai selectionné volume principal E:
 J'ai tapé la commande bcdboot E:\Windows /s C: /l fr-fr afin de récupérer les fichiers de démarrage présents dans E: et les installer dans la partition de démarrage C:
 Enfin j'ai tapé la commande bootrec /rebuildbcd pour verifier que l'installation était réussie.
-
-
+![Commande](./images/4-Invite-de-commande.png)
+![Commande](./images/5-DiskPart.png)
+![Commande](./images/6-Commandes.png)
 
 Ensuite au redémarrage j'obtiens l'erreur 0xc000000f :
-
+![Erreur](./images/7-Erreur.png)
 
 
 J'ai été dans dépannage et j'ai lancé l'outil de réparation Windows puis j'ai redémarré, Windows s'est lancé:
-
+![Windows](./images/8-Demarrage.png)
 
 # Étape 2 : Restaurer les performances normales de la machine :
 
 Je constate que le processeur est trop utilisé dans le gestionnaire de taches (une fenetre de commande powershell "ping" se lance au démarrage). Dans le gestionnaire des taches, j'ai désactivé Powershell. Ensuite j'ai été dans le fichier de démarrage et j'ai supprimé le raccourci "ping" ainsi que le script dans le dossier Windows:
-
+![Processeur](./images/9-process.png)
+![Processeur](./images/10-process.png)
+![Processeur](./images/11-process.png)
+![Processeur](./images/12-process.png)
+![Processeur](./images/13-process.png)
 
 
 # Étape 3 : Vérifier l’état des disques durs :
-Dans le gestionnaire de disques j'ai remis le disque en ligne et j'ai redémarré:
+Dans le gestionnaire de disques j'ai remis le disque 1 en ligne et j'ai redémarré:
+![Disque](./images/14-disque.png)
+![Disque](./images/15-disque.png)
+![Disque](./images/16-disque.png)
 
 
 
@@ -86,7 +95,8 @@ Dans le gestionnaire de disques j'ai remis le disque en ligne et j'ai redémarr�
 
 J'ai été dans le dossier images, clic droit propriétés et versions précédentes, restaurer. Le fichier "York" est désormais présent: 
 
-
+![Images](./images/17-images.png)
+![Images](./images/18-images.png)
 
 
 
