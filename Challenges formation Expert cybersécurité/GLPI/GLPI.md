@@ -17,7 +17,7 @@ Explorez les fonctionnalités utiles au support : ajout de commentaires, changem
 ---
 ## 1. Installation avec droits administrateur
 
-* Téléchargement de l'installateur **`.msi`** de l'agent GLPI.
+* Téléchargement de l'agent GLPI.
 *  Ouverture de l'**Invite de commande (cmd) en tant qu'administrateur**.
 *  Lancement de l'installateur avec les droits complets via la commande :
     ```bash
