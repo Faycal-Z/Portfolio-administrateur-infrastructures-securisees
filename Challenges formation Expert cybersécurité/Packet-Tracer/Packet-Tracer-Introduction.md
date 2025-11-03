@@ -61,6 +61,6 @@ Bonus : Vérifiez avec la commande ping si les postes peuvent bien communiquer. 
 
 ![Ping](./images/Ping.png)
 
-Le ping fonctionne bien et les postes peuvent bien communiquer entre eux, y compris avec les différents copieurs.
+Le ping fonctionne et les postes peuvent bien communiquer entre eux, y compris avec les différents copieurs.
 
 
