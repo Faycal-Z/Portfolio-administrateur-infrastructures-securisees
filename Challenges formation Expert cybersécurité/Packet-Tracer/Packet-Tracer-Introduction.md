@@ -58,9 +58,8 @@ Bonus : Vérifiez avec la commande ping si les postes peuvent bien communiquer. 
 ![LAN-Lyon](./images/LAN-Lyon.png)
 # Schema du réseau et test du ping
 ![Reseau](./images/Reseau.png)
-
+# J'ai effectué un broadcast sur le réseau pour vérifier que tous les postes sont joignables:
 ![Ping](./images/Ping.png)
 
-Le ping fonctionne et les postes peuvent bien communiquer entre eux, y compris avec les différents copieurs.
 
 
