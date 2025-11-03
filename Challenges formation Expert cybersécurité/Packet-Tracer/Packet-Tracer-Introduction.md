@@ -61,5 +61,5 @@ Bonus : Vérifiez avec la commande ping si les postes peuvent bien communiquer. 
 # J'ai effectué un broadcast sur le réseau pour vérifier que tous les postes sont joignables:
 ![Ping](./images/Ping.png)
 
-
+Le broadcast fonctionne.
 
