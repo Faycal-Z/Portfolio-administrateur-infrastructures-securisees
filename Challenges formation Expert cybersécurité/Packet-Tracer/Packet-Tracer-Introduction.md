@@ -10,36 +10,37 @@ Pour toutes les adresses IP, on utilise le masque de sous-réseau 255.0.0.0 soit
 Voici la liste des end devices avec leurs adresses IP (on appelle ça un plan d’adressage !) :
 
 Paris (site principal) :
-Accueil :
+* Accueil :
 2 PC fixes, adresses IP en 10.1.1.X (X étant le numéro du poste, de 1 à 2)
 un copieur, adresse IP 10.1.123.1
-Compta :
+* Compta :
 3 PC fixes, adresses IP en 10.1.2.X (X étant le numéro du poste, de 1 à 3)
 un copieur, adresse IP 10.1.123.2
-Direction :
+* Direction :
 2 PC portables, adresses IP en 10.1.3.X (X étant le numéro du poste, de 1 à 2)
 une imprimante, adresse IP 10.1.123.3
-Salle 4 / open-space N°1 :
+* Salle 4 / open-space N°1 :
 8 PC fixes, adresses IP en 10.10.4.X (X étant le numéro du poste, de 1 à 8)
 un copieur, adresse IP 10.10.123.4
 un switch dédié (utilisez un Cisco 2960 !)
-Salle 5 / open-space N°2 :
+* Salle 5 / open-space N°2 :
 12 PC fixes, adresses IP en 10.10.5.X (X étant le numéro du poste, de 1 à 12)
 un switch dédié
-Service Informatique :
+* Service Informatique :
 1 PC fixe et 2 PC portables, adresses IP en 10.1.42.X (idem pour le X)
 un switch dédié
-Salle serveur :
+* Salle serveur :
 1 switch pour les PC de l’Accueil, la Compta et la Direction
 1 switch “cœur de réseau”, sur lequel tous les autres sont connectés !
+  
 Lyon :
-Accueil :
+* Accueil :
 2 PC fixes, adresses IP en 10.2.1.X (X étant le numéro du poste, de 1 à 2)
 un copieur, adresse IP 10.2.123.1
 un switch partagé avec la salle 2
-Salle serveur :
+* Salle serveur :
 1 switch “cœur de réseau”, sur lequel tous les autres sont connectés !
-Salle 2 / open-space :
+* Salle 2 / open-space :
 12 PC fixes, adresses IP en 10.20.2.X (X étant le numéro du poste, de 1 à 12)
 une imprimante, adresse IP 10.20.123.2
 un switch partagé avec l’accueil
@@ -48,5 +49,18 @@ Pour l’instant, même si les sites sont géographiquement éloignés, reliez l
 Bonus : Vérifiez avec la commande ping si les postes peuvent bien communiquer. Vous l’avez normalement vue en saison 2, mais cherchez sur Internet comment utiliser cette commande si nécessaire (votre formateur n’a peut-être pas eu le temps d’en reparler, la journée était suffisamment chargée 😅) !
 
 ---
+
+# Création du site principal Paris 
+![LAN-Paris](./images/LAN-Paris.png)
+# Ajout des adresses IP pour tous les ordinateurs et copieurs
+![IP-Paris](./images/IP-Paris.png)
+# Création du site de Lyon et ajout des adresses IP
+![LAN-Lyon](./images/LAN-Lyon.png)
+# Schema du réseau et test du ping
+![Reseau](./images/Reseau.png)
+
+![Ping](./images/Ping.png)
+
+Le ping fonctionne bien et les postes peuvent bien communiquer entre eux, y compris avec les différents copieurs.
 
 
