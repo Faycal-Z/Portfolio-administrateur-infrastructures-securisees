@@ -47,8 +47,10 @@ J’ai ajouté DHCP et un ordinateur supplémentaire comme demandé dans la part
 ![IP-serveur](./images/1.png)
 
 ![IP-serveur](./images/1-1.png)
+
 - Configuration du pc supplémentaire en ip DHCP :
 ![IP-pc](./images/2.png)
+
 Le PC obtient une adresse IP dans la plage définie : 192.168.1.0/25
 Il est donc bien dans le meme sous réseau. Le ping fonctionne entre toutes les machines.
 
@@ -58,9 +60,10 @@ Il est donc bien dans le meme sous réseau. Le ping fonctionne entre toutes les 
 - Puis le LAN 3, avec un laptop en DHCP :
 ![LAN3](./images/4.png)
 
-- J’ai configuré un hostname et mot de passe pour chaque switch. Pour cela j’ai simulé une connection entre un ordinateur portable et le switch à l’aide du cable console 
+- J’ai configuré un hostname et mot de passe pour chaque switch. Pour cela j’ai simulé une connection entre un ordinateur portable et le switch à l’aide du cable console.
 - Dans le terminal j’ai entré les commandes enable, puis conf t :
 ![Commandes](./images/5.png)
+
 - J’ai entré la commande hostname suivi du nom de mon switch :
 ![Commandes](./images/6.png)
 
@@ -76,9 +79,12 @@ Il est donc bien dans le meme sous réseau. Le ping fonctionne entre toutes les 
 - J’ai effectué les memes manipulations pour les deux autres switch.
  Ajout d’un routeur afin de connecter les 3 réseaux  et Configuration des ports du router :
 ![Routeur](./images/10.png)
+
 ![Routeur](./images/11.png)
+
 - J’ai configuré les passerelles par défauts du DHCP et des PC :
 ![Passerelle](./images/12.png)
+
 -  J’ai ajouté le nouveau routeur et crée les nouveaux sous réseaux :
 ![Routeur](./images/13.png)
 
