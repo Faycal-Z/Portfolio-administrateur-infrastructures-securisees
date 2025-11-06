@@ -38,3 +38,59 @@ Configurez le nouveau routeur et le routeur existant pour que le ping passe entr
 
 💡 Indice : il faudra faire une route statique ou une route par défaut sur les deux routeurs. À vous de trouver ce qui fonctionne comme règle !
 
+---
+
+
+Création du premier LAN :
+J’ai ajouté DHCP et un ordinateur supplémentaire comme demandé dans la partie bonus.
+- Ajout d’une adresse IP fixe au serveur :
+
+1 et 1-1
+- Configuration du pc supplémentaire en ip DHCP :
+
+2
+Le PC obtient une adresse IP dans la plage définie : 192.168.1.0/25
+Il est donc bien dans le meme sous réseau. Le ping fonctionne entre toutes les machines.
+
+- J’ai procédé de la meme manière pour créer le LAN 2 :
+3
+
+- Puis le LAN 3, avec un laptop en DHCP :
+
+4
+
+- J’ai configuré un hostname et mot de passe pour chaque switch. Pour cela j’ai simulé une connection entre un ordinateur portable et le switch à l’aide du cable console 
+- Dans le terminal j’ai entré les commandes enable, puis conf t :
+
+5 
+- J’ai entré la commande hostname suivi du nom de mon switch :
+6
+
+- Ajout du mot de passe (enable secret + mot de passe):
+7
+
+-  Ajout d’un mot de passe à la connexion :
+8
+
+- Sauvegarde :
+
+9
+
+- J’ai effectué les memes manipulations pour les deux autres switch.
+ Ajout d’un routeur afin de connecter les 3 réseaux  et Configuration des ports du router :
+
+10 et 11
+- J’ai configuré les passerelles par défauts du DHCP et des PC :
+
+12
+
+-  J’ai ajouté le nouveau routeur et crée les nouveaux sous réseaux :
+13
+
+- J’ai crée une route statique avec la commande ip route :
+14
+
+- J’ai crée le reste des routes statiques de mon réseau :
+15
+- Toutes les machines peuvent désormais communiquer entre elles :
+16
