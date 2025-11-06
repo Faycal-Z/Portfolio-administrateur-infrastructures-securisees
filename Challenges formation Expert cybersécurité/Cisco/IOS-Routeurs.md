@@ -43,54 +43,50 @@ Configurez le nouveau routeur et le routeur existant pour que le ping passe entr
 
 Création du premier LAN :
 J’ai ajouté DHCP et un ordinateur supplémentaire comme demandé dans la partie bonus.
-- Ajout d’une adresse IP fixe au serveur :
+- Ajout d’une adresse IP fixe au serveur et configuration du serveur DHCP:
+![IP-serveur](./images/1.png)
 
-1 et 1-1
+![IP-serveur](./images/1-1.png)
 - Configuration du pc supplémentaire en ip DHCP :
-
-2
+![IP-pc](./images/2.png)
 Le PC obtient une adresse IP dans la plage définie : 192.168.1.0/25
 Il est donc bien dans le meme sous réseau. Le ping fonctionne entre toutes les machines.
 
 - J’ai procédé de la meme manière pour créer le LAN 2 :
-3
+![LAN2](./images/3.png)
 
 - Puis le LAN 3, avec un laptop en DHCP :
-
-4
+![LAN3](./images/4.png)
 
 - J’ai configuré un hostname et mot de passe pour chaque switch. Pour cela j’ai simulé une connection entre un ordinateur portable et le switch à l’aide du cable console 
 - Dans le terminal j’ai entré les commandes enable, puis conf t :
-
-5 
+![Commandes](./images/5.png)
 - J’ai entré la commande hostname suivi du nom de mon switch :
-6
+![Commandes](./images/6.png)
 
 - Ajout du mot de passe (enable secret + mot de passe):
-7
+![Mot-de-passe](./images/7.png)
 
 -  Ajout d’un mot de passe à la connexion :
-8
+![Mot-de-passe](./images/8.png)
 
 - Sauvegarde :
-
-9
+![Sauvegarde](./images/9.png)
 
 - J’ai effectué les memes manipulations pour les deux autres switch.
  Ajout d’un routeur afin de connecter les 3 réseaux  et Configuration des ports du router :
-
-10 et 11
+![Routeur](./images/10.png)
+![Routeur](./images/11.png)
 - J’ai configuré les passerelles par défauts du DHCP et des PC :
-
-12
-
+![Passerelle](./images/12.png)
 -  J’ai ajouté le nouveau routeur et crée les nouveaux sous réseaux :
-13
+![Routeur](./images/13.png)
 
 - J’ai crée une route statique avec la commande ip route :
-14
+![Route](./images/14.png)
 
 - J’ai crée le reste des routes statiques de mon réseau :
-15
+![Routes](./images/15.png)
+
 - Toutes les machines peuvent désormais communiquer entre elles :
-16
+![Reseau](./images/16.png)
