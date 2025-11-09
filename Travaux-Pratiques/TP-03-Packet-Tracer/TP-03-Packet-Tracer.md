@@ -249,7 +249,7 @@ Toutes les machines ont désormais une adresse ip attribuée par le service DHCP
 ![Noms-WiFi](./images/21.png)
 
 - Ajout de cartes WiFi sur les laptops:
-![Carte-WiFi(./images/22.png)
+![Carte-WiFi](./images/22.png)
 
 - Connection des laptops aux réseaux:
 ![Connexion](./images/23.png)
