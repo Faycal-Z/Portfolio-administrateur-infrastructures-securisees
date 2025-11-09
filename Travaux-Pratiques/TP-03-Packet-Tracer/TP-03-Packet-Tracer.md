@@ -166,6 +166,7 @@ Il faudrait trouver un moyen de relayer les trames DHCP vers notre serveur 🤔
 * 10.0.0.0/8
 * 172.16.0.0/12
 * 192.168.0.0/16
+  
 ## Création de 3 sous réseaux pour PARIS 2 sous réseaux pour LILLE et un VPN:
 - Paris :
   * Paris LAN : 10.1.0.0/24 (254 adresses, de 10.1.0.1 à 10.1.0.254)
@@ -179,7 +180,6 @@ Il faudrait trouver un moyen de relayer les trames DHCP vers notre serveur 🤔
 - VPN : 192.168.11.0/24 (254 adresses, de 192.168.11.1 à 192.168.11.254)
 
 # Étape 2 - Câblage
-
 - Installation de 2 Cisco 2901 (un pour Paris, un pour Lille)
 et 1 Cisco 1941 (pour le VPN), ainsi que 5cartes HWIC-1GE-SFP, avec 5 modules SFP GLC-LH-SMD
 2 cartes HWIC-2T
@@ -188,13 +188,15 @@ et 1 Cisco 1941 (pour le VPN), ainsi que 5cartes HWIC-1GE-SFP, avec 5 modules SF
 3 Cisco 2960-24TT (1 pour le WiFi de Paris, un pour le WiFi de Lille, un pour le VPN)
 
 - Liste de mes équipements:
-Image 4et41
+  
+![Equipements](./images/4.png)
+![Equipements](./images/41.png)
 
 
 # Étape 3 - Configuration des switchs:
 - Configuration du hostname sur les switchs, ajout d'un mot de passe et d'une adresse IP pour le Vlan1:
-Image5
-
+  
+![Config-switch](./images/5.png)
 
 J'ai procédé de la meme manière pour les autres switch.
 
@@ -203,31 +205,38 @@ J'ai procédé de la meme manière pour les autres switch.
 
 - configuration hostname, ajout mot de passe, configuration d'une adresse IP sur chaque interface du routeur connectée à un de nos sous-réseaux:
 
-Image6
+![Config-routeurs](./images/6.png)
 
 - J'ai ajouté les passerelles par défauts également à toutes les machines.
 
-image 8
+![Passerelles](./images/8.png)
 
 
 # Étape 5 - Routes statiques
 - Ajout des routes statiques sur le routeur Paris:
-image 9 + 10
+ 
+![routes-statiques](./images/9.png)
+![routes-statiques](./images/10.png)
 
 - Pour le routeur Lille j'ai ajouté une route par défaut étant donné qu'il est relié uniquement au routeur Paris:
-Image 11
+  
+![Route-par-défaut](./images/11.png)
 
-J'ai également ajouté une route par défaut pour le Routeur VPN
+J'ai également ajouté une route par défaut pour le Routeur VPN.
 
 Les ping fonctionnent bien entre tous les sous-réseaux !
-image 12
+
+![réseau](./images/12.png)
 
 # Étape 6 - DHCP
 - Configuration du serveur DHCP avec différentes plages d'adresses pour les sous réseaux:
-Image13
+  
+![Serveur-DHCP](./images/13.png)
 
 - Configuration du routeur, pour chaque sous-réseaux:
-Image14
+  
+![Config-routeurs](./images/14.png)
 
-Toutes les machines ont désormais une adresse ip attribuée par le service DHCP et se pin à travers le réseau:
-Image15
+Toutes les machines ont désormais une adresse ip attribuée par le service DHCP et se ping à travers le réseau:
+
+![Réseau](./images/15.png)
