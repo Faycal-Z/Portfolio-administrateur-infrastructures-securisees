@@ -240,3 +240,21 @@ Les ping fonctionnent bien entre tous les sous-réseaux !
 Toutes les machines ont désormais une adresse ip attribuée par le service DHCP et se ping à travers le réseau:
 
 ![Réseau](./images/15.png)
+
+# Bonus:
+- Ajout de 2 AccessPoint-PT pour les réseaux WiFi et connexion avec les routeurs:
+![AP-PT](./images/20.png)
+
+- J'ai renommé les deux réseaux WiFi:
+![Noms-WiFi](./images/21.png)
+
+- Ajout de cartes WiFi sur les laptops:
+![Carte-WiFi(./images/22.png)
+
+- Connection des laptops aux réseaux:
+![Connexion](./images/23.png)
+
+- Les laptops sont bien connectés au réseau, disposent d'une adresse IP fournie par le serveur DHCP et tous les ping fonctionnent:
+![Ping](./images/24.png)
+
+
