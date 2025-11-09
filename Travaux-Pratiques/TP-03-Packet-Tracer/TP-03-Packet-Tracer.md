@@ -24,7 +24,7 @@ Voici les différents services de l'entreprise ainsi que le nombre de salariés 
 - juridique : 2
 - recherche et développement : 23
 - informatique : 2
-- 
+  
 L'entreprise a des bureaux à Paris et à Lille, mais ils envisagent à terme d'ouvrir un site par département Français.
 
 À Paris, on retrouve la direction, la comptabilité, le service juridique, la communication et les ressources humaines. Il y a également 10 commerciaux, 12 ingénieurs R&D et un informaticien.
@@ -41,15 +41,13 @@ Proposez un plan d'adressage pour le réseau de l'entreprise.
 Voici les sous-réseaux minimum à créer :
 
 - Paris :
-
- -LAN (tous les PC fixes et portables)
- - DMZ (zone démilitarisée, pour les serveurs, voir ci-dessous)
- - WiFi public (pour les visiteurs, filaire obligatoire pour les salariés)
+  * LAN (tous les PC fixes et portables)
+  * DMZ (zone démilitarisée, pour les serveurs, voir ci-dessous)
+  *  WiFi public (pour les visiteurs, filaire obligatoire pour les salariés)
    
 - Lille :
-
- - LAN (tous les PC fixes et portables)
- - WiFi public (pour les visiteurs, filaire obligatoire pour les salariés)
+  * LAN (tous les PC fixes et portables)
+  * WiFi public (pour les visiteurs, filaire obligatoire pour les salariés)
 
 - VPN (un sous-réseau dans lequel se trouvent les machines des collaborateurs à distance)
 
@@ -71,29 +69,24 @@ Pas le choix, il falloir l'utiliser ce matériel !
 Voici la liste du matériel réseau à votre disposition :
 
 - Routeurs :
-
- - 2x Cisco 2901 (un pour Paris, un pour Lille)
- - 1x Cisco 1941 (pour le VPN)
+  * 2x Cisco 2901 (un pour Paris, un pour Lille)
+  * 1x Cisco 1941 (pour le VPN)
    
 - Modules et cartes d'extension pour routeurs :
-
- - 5x cartes HWIC-1GE-SFP, avec 5x modules SFP GLC-LH-SMD
- - 2x cartes HWIC-2T
+  * 5x cartes HWIC-1GE-SFP, avec 5x modules SFP GLC-LH-SMD
+  * 2x cartes HWIC-2T
 
 - Switchs :
-
- - 4x Cisco 3650-24PS (2 pour le LAN de Paris, un pour la DMZ, un pour le LAN de Lille)
- - 3x Cisco 2960-24TT (1 pour le WiFi de Paris, un pour le WiFi de Lille, un pour le VPN)
+  * 4x Cisco 3650-24PS (2 pour le LAN de Paris, un pour la DMZ, un pour le LAN de Lille)
+  * 3x Cisco 2960-24TT (1 pour le WiFi de Paris, un pour le WiFi de Lille, un pour le VPN)
    
 - Modules et cartes d'extension pour switchs :
-
- - 4x alimentations AC-POWER-SUPPLY (une par switch 3650-24PS)
- - 5x modules SFP GLC-LH-SMD
+  * 4x alimentations AC-POWER-SUPPLY (une par switch 3650-24PS)
+  * 5x modules SFP GLC-LH-SMD
    
 - Autres équipements :
-
- - 4x Serveurs
- - 3x Copieurs (2 pour Paris dont un pour le batiment R&D, un pour Lille)
+  * 4x Serveurs
+  * 3x Copieurs (2 pour Paris dont un pour le batiment R&D, un pour Lille)
    
 Pour le WiFi, on s'embête pas : on connectera directement les machines sur le switch 2960-24TT en filaire.
 
@@ -109,7 +102,7 @@ Sur chaque switch, vous allez devoir :
 - configurer le hostname
 - ajouter un mot de passe pour protéger le mode privilégié (utilisez le même partout)
 - configurer une adresse IP sur l'interface Vlan1
-- 
+ 
 L'adresse IP doit être dans le même sous-réseau que les postes connectés au switch.
 
 Mettez une adresse IP statique sur au moins un PC par sous-réseau pour pouvoir pinger le switch.
@@ -120,7 +113,7 @@ Sur chaque routeur, vous allez devoir :
 - configurer le hostname
 - ajouter un mot de passe pour protéger le mode privilégié (utilisez le même partout)
 - configurer une adresse IP sur chaque interface du routeur connectée à un de nos sous-réseaux
-- 
+ 
 Pour la connexion entre Paris et Lille, utilisez les adresses IP :
 
 - 92.12.34.1/24 pour le routeur de Paris
