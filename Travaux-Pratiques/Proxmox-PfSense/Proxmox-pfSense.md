@@ -377,8 +377,13 @@ Vous pourrez ensuite créer une deuxième VM Windows connectée à ce pont vmbr3
 - création de vmbr2 => passerelle 10.0.0.1 (+ ordi windows 10)
 - création de vmbr3 => passerelle 172.16.0.1 (+ ordi windows 10)
 
+![pfSense](./images/proxmox3.png)
 
 Le ping Fonctionne entre les deux machines:
 
+![Ping](./images/proxmox2.png)
+
 Connexion au bureau à distance: 
+
+![Connexion](./images/proxmox.png)
 
