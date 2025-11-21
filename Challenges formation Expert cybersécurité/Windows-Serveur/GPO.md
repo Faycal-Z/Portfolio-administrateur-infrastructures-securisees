@@ -69,7 +69,7 @@
 
 ![GPUPDATE](./images/GPO/21.png)
 
-## Auprès un redémarrage de l'ordinateur, le fond d'écran s'affiche bien:
+## Après un redémarrage de l'ordinateur, le fond d'écran s'affiche bien:
 
 ![Fond_ecran](./images/GPO/22.png)
 
