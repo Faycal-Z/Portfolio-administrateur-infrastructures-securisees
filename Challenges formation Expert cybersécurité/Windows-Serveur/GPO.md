@@ -32,7 +32,7 @@
 
 ![Groupes](./images/GPO/10.png)
 
-# Mise en place une GPO lié aux fond écran utilisateur:
+# Mise en place d'une GPO liée aux fond écran utilisateur:
 
 ![GPO](./images/GPO/11.png)
 
