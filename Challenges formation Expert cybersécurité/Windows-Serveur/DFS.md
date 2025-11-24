@@ -36,6 +36,7 @@ Créer des dossiers de partage avec des autorisations aux différentes promotion
 
 ![Confirmation](./images/DFS/9.png)
 
+## Un utilisateur membre du groupe GS_PromoAndromede peut uniquement accèder fichier PromoAndromede :
 
 
 
