@@ -1,3 +1,6 @@
+# Consignes 🗒️: 
+
+
 1. Créer les utilisateurs et UO:
 
 - Création des deux nouveaux UO Zinc et Basilic:
