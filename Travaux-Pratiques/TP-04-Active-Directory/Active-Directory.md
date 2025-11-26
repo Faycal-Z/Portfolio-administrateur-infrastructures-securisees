@@ -223,7 +223,7 @@
 - Création de la GPO pour installer VSCode:
 ![](images/94.png)
 ![](images/95.png)
-![](images/96.png)
+![](images/100.png)
 ![](images/97.png)
 ![](images/98.png)
 ![](images/99.png)
