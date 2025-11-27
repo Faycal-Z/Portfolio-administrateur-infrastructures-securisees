@@ -150,26 +150,27 @@
  - ![](images/61.png)
  - ![](images/62.png)
 
-        - Configurer une politique de mot de passe sécurisé:
+   - Configurer une politique de mot de passe sécurisé:
 ![](images/63.png)
 ![](images/64.png)
 
-		* Longueur du mot de passe à 12: 
+	* Longueur du mot de passe à 12: 
 ![](images/65.png)
 
-		* Durée de vie maximale à 30 jours
+	* Durée de vie maximale à 30 jours
 ![](images/66.png)
 ![](images/67.png)
 
-	- Forcer un fond d'écran par promotion:
-		
-		* Pour la promotion Aldébaran : 
-		![](images/68.png)
-		![](images/69.png)
-		![](images/70.png)
-		![](images/71.png)
+	* Forcer un fond d'écran par promotion:
+	
+	Pour la promotion Aldébaran : 
+	![](images/68.png)
+	![](images/69.png)
+	![](images/70.png)
+	![](images/71.png)
 
-		* Puis application de la même procédure pour les trois autres promotions. Les fonds d'écran s'affichent en fonction des promotions, pour la promotion Basilic:
+	* Puis application de la même procédure pour les trois autres promotions. Les fonds d'écran s'affichent en fonction des promotions, pour la promotion Basilic:
+
 ![](images/72.png)
 
 	- Désactiver la connexion des étudiants Zinc et Basilic à partir de 17h jusqu’à 8h00 pour tout les jours de la semaine:
