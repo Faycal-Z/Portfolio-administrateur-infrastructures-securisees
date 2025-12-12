@@ -15,13 +15,13 @@ créer un dernier utilisateur et vérifier qu’il n’a pas accès au dossier c
 
 # Installation de la VM :
 
-![Ip](./images/1.png)
+![VM](./images/1.png)
 
-![Ip](./images/2.png)
+![VM](./images/2.png)
 
-![Ip](./images/3.png)
+![VM](./images/3.png)
 
-![Ip](./images/4.png)
+![VM](./images/4.png)
 
 
 # Création du nouvel utilisateur :
@@ -30,7 +30,28 @@ créer un dernier utilisateur et vérifier qu’il n’a pas accès au dossier c
 
 # Permettre à l'utilisateur d'utiliser les commandes sudo :
 
-![Ip](./images/6.png)
+![Sudo](./images/6.png)
 
 # Ne pas demander de mot de passe pour lancer la commande rpm :
+
+![Rpm](./images/7.png)
+
+# Création du groupe, ajout du nouvel utilisateur et de l'utilisateur crée à l'installation :
+
+![Groupe](./images/9.png)
+
+![Groupe](./images/10.png)
+
+# Création du dossier partagé et modification des permissions :
+
+![Dossier-permission](./images/11.png)
+
+# Vérification via la création d'un nouvel utilisateur alice :
+
+![Utilisateur](./images/12.png)
+
+![Utilisateur](./images/13.png)
+
+# On constate que le nouvel utilisateur n'a pas accès au dossier partagé.
+
 
