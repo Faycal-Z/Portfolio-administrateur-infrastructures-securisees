@@ -480,6 +480,52 @@ On passe en on et on redémarre Apache :
 ![](images/46.png)
 
 
+# Hyper-bonus : configuration de GLPI
+
+## Premiere partie :
+
+- On se connecte en super admin et on change le mot de passe, puis on créer un utilisateur :
+
+![](images/48.png)  
+
+- On se connecte avec le compte de l'utilisateur Jean Arc et on créer un nouveau ticket :
+
+![](images/49.png)
+
+![](images/50.png)
+
+![](images/51.png)
+
+- On constate que le ticket est bien visible, via le compte admin, on peut le marquer comme "résolu" :
+
+![](images/52.png)
+
+## Deuxième partie :
+
+- On active l'inventaire et on sauvegarde :
+
+- ![](images/53.png)
+  
+- On installe l'agent sur la machine Windows :
+
+![](images/54.png)
+
+![](images/55.png)
+
+
+- On accède à l'interface locale de l'agent et on force l'inventaire :
+
+![](images/56.png)
+
+- On constate que la machine Windows apparait bien dans GLPI :
+
+![](images/57.png)
+
+
+
+
+
+
 
  
   
