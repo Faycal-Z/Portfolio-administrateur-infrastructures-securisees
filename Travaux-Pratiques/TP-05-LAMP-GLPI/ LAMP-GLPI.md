@@ -250,3 +250,10 @@ Une fois les modifications effectuées sur la configuration d'Apache, rendez-vou
 Si vous arrivez jusque-là : bravo 🎉💪
 
 S'il n'est pas trop tard, vous pouvez toujours essayer de configurer votre serveur GLPI, créer des tickets, et même potentiellement y ajouter des machines Windows à superviser (vous pouvez y ajouter une autre VM en mode Accès par pont, par exemple) !
+
+---
+
+# Etape 1 : VM Debian
+
+## Création de la VM :
+
