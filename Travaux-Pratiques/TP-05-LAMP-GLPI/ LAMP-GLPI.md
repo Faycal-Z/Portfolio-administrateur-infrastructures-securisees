@@ -346,6 +346,145 @@ usermod -aG sudo faycal
 
 # Étape 7 : Connexion SSH
 
+- On télécharge et on installe Putty :
+
+![](images/23.png)
+
+
+# Étape 8 : GLPI
+
+- On télécharge GLPI, et on vérifie qu'il est bien installé :
+
+![](images/24.png)
+
+![](images/25.png)
+
+![](images/26.png)
+
+![](images/27.png)
+
+- On retrouve bien une erreur de permissions :
+
+![](images/28.png)
+
+- Changement des permissions :
+
+![](images/29.png)
+
+- Configuration de la connexion à la base de données et création de la base de données GLPI :
+
+![](images/30.png)
+
+![](images/31.png)
+
+![](images/32.png)
+
+- Le GLPI est opérationnel :
+
+![](images/33.png)
+
+
+# Bonus : PHPMyAdmin & Adminer
+
+## PHPMyAdmin :
+
+- On tape la commande sudo apt install phpmyadmin
+  
+- On sélectionne Apache2 comme serveur web à configurer :
+
+![](images/34.png)
+
+![](images/35.png)
+
+- Connexion à PHPMyAdmin :
+
+
+![](images/36.png)
+
+
+## Adminer :
+
+- Installation d'Adminer :
+
+  cd /var/www/html
+  
+mkdir adminer
+cd adminer
+wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql.php
+mv adminer-4.8.1-mysql.php index.php
+
+![](images/37.png)
+
+- On accède à Adminer :
+
+![](images/38.png)
+
+![](images/39.png)
+
+
+# Super-bonus : sécurité :
+
+- On créer le fichier de configuration :
+
+  sudo nano /etc/apache2/sites-available/glpi.conf
+
+![](images/40.png)
+
+- On active le module URL Rewriting :
+
+  sudo a2enmod rewrite
+
+- On désactive le site par défaut et on active le site GLPI, puis on redémarre:
+
+  sudo a2dissite 000-default.conf
+
+  sudo a2ensite glpi.conf
+
+  sudo systemctl restart apache2
+
+- On constate qu'il ne reste que deux erreurs à traiter :
+
+![](images/41.png)
+
+- Activation de sécurité pour les cookies de session, on ouvre le fichier de configuration PHP :
+
+sudo nano /etc/apache2/php.ini
+
+- On passe modifie la ligne session.cookie_httponly :
+
+![](images/41.png)
+
+On passe en on et on redémarre Apache :
+
+![](images/42.png)
+![](images/43.png)
+
+- Pour les fuseaux horaires, on rempli la base via cette commande :
+
+ mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mariadb -u root -p mysql
+
+ sudo mariadb -u root -p
+
+- On lance les commandes SQL:
+
+ GRANT SELECT ON mysql.time_zone_name TO 'dbuser'@'localhost';
+ FLUSH PRIVILEGES;
+ exit
+
+![](images/45.png)
+
+- On constate qu'il n'ya plus d'erreurs :
+
+![](images/46.png)
+
+
+ 
+  
+
+
+
+
+
 
 
 
