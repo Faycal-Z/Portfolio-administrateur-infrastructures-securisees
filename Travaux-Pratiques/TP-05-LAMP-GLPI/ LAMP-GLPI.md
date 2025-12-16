@@ -468,7 +468,9 @@ On passe en on et on redémarre Apache :
 - On lance les commandes SQL:
 
  GRANT SELECT ON mysql.time_zone_name TO 'dbuser'@'localhost';
+ 
  FLUSH PRIVILEGES;
+ 
  exit
 
 ![](images/45.png)
@@ -476,6 +478,7 @@ On passe en on et on redémarre Apache :
 - On constate qu'il n'ya plus d'erreurs :
 
 ![](images/46.png)
+
 
 
  
