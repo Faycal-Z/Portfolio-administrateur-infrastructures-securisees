@@ -484,11 +484,7 @@ mv adminer-4.8.1-mysql.php index.php
 sudo nano /etc/apache2/php.ini
 ```
 
-- On passe modifie la ligne session.cookie_httponly :
-
-![](images/41.png)
-
-On passe en on et on redémarre Apache :
+- On modifie la ligne session.cookie_httponly on passe en "on" et on redémarre Apache :
 
 ![](images/42.png)
 ![](images/43.png)
