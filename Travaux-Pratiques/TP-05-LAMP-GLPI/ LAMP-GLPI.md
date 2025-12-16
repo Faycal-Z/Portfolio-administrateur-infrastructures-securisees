@@ -257,3 +257,101 @@ S'il n'est pas trop tard, vous pouvez toujours essayer de configurer votre serve
 
 ## Création de la VM :
 
+![](images/1.png)
+
+![](images/2.png)
+
+![](images/3.png)
+
+![](images/5.png)
+
+# Étape 2 : sudo
+
+- On lance les commandes :
+
+su -
+
+apt update
+
+apt install sudo
+
+usermod -aG sudo faycal 
+
+![](images/5.png)
+
+- La commande sudo nano /etc/network/interfaces fonctionne bien :
+
+![](images/6.png)
+
+# Étape 3 : Guest Additions
+
+- Nous sommes sur VMWARE, nous allons donc adapter les commmandes :
+
+![](images/7.png)
+
+![](images/8.png)
+
+- On redémarre la VM et on tape la commande lsmod | grev vmw :
+
+![](images/9.png)
+
+# Étape 4 : Apache
+
+- On installe Apache via la commande  sudo apt install apache2 :
+
+![](images/10.png)
+
+- On passe en mode connexion par pont :
+
+![](images/11.png)
+
+- On récupère une nouvelle adresse IP, on affiche l'adresse ip via la commande ip a et on la rentre dans le navigateur ::
+
+![](images/14.png)
+
+![](images/12.png)
+
+- On constate que le service est bien en cours d'exécution :
+
+![](images/13.png)
+
+
+# Étape 5 : MariaDB
+
+- On lance l'installation de MariaDB :
+
+![](images/15.png)
+
+![](images/16.png)
+
+- On entre dans l'utilitaire et on répond aux questions, on entre dans la base de données et on crée l'utilisateur :
+
+![](images/17.png)
+
+# Étape 6 : PHP
+
+- Installation de PHP :
+
+![](images/18.png)
+
+![](images/19.png)
+
+![](images/20.png)
+
+- On récupère notre ip et on contstate que PHP est bien installé :
+
+![](images/21.png)
+
+![](images/22.png)
+
+# Étape 7 : Connexion SSH
+
+
+
+
+  
+
+
+
+
+  
