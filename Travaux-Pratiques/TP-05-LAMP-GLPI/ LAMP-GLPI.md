@@ -325,21 +325,21 @@ usermod -aG sudo faycal
 
 - On installe Apache via la commande ``` sudo apt install apache2 ``` :
 
-![](images/10.png)
+![](images/10-Installation-apache.png)
 
 - On passe en mode connexion par pont :
 
-![](images/11.png)
+![](images/11-Passage-bridge.png)
 
 - On récupère une nouvelle adresse IP, on affiche l'adresse ip via la commande ``` ip a ``` et on la rentre dans le navigateur ::
 
 ![](images/14.png)
 
-![](images/12.png)
+![](images/12-page-debian.png)
 
 - On constate que le service est bien en cours d'exécution :
 
-![](images/13.png)
+![](images/13-serviceOK.png)
 
 
 # Étape 5 : MariaDB
