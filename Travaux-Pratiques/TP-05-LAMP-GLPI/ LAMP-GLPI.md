@@ -26,46 +26,54 @@ Par défaut, la commande sudo n'est pas installée sur Debian.
 
 Pour éviter de lancer toutes les commandes avec le compte super-utilisateur, on va donc l'installer et mettre notre utilisateur créé pendant l'installation dans le groupe sudo ! Lancez les commandes suivantes :
 
-su -
+``` su -
 apt update
 apt install sudo
 usermod -aG sudo <nom_utilisateur>
+```
+
 ⚠️ Remplacez <nom_utilisateur> par le nom de votre utilisateur !
 
 Vous devez ensuite vous déconnecter de l'utilisateur root et également de votre utilisateur. Pour cela, lancez deux fois la commande exit, puis reconnectez-vous.
 
 Essayez de lancer une commande avec sudo pour vérifier que cette étape est OK, par exemple :
-
+```
 sudo nano /etc/network/interfaces
-Étape 3 : Guest Additions
+```
+
+## Étape 3 : Guest Additions
 Installons les Guest Additions de Virtual Box (ça ne servira à rien en vrai, mais ça fait une étape en plus 😈). Commencez par insérer l'image ISO :
 
 
 
 Enfin, lancez les commandes suivantes :
-
+```
 sudo apt update
 sudo apt install build-essential dkms linux-headers-$(uname -r)
 sudo mount /dev/cdrom /mnt
 cd /mnt
 sudo ./VBoxLinuxAdditions.run
+```
 Redémarrez ensuite la VM avec la commande sudo reboot, puis vérifiez que la module du noyau est chargé avec la commande :
-
+```
 lsmod | grep vbox
+```
 
 ## Étape 4 : Apache
 Apache est l'un des serveurs (logiciel) web les plus populaires, il est utilisé sur un très grand nombre de serveurs pour héberger des sites web.
 
 Pour l'installer, lancez la commande :
-
+```
 sudo apt install apache2
+```
 Pour vérifier qu'Apache est bien installé, passez la carte réseau de votre VM en mode Accès par pont (et sélectionnez votre carte réseau dans la liste déroulante Name) :
 
 
 Pour que notre Debian récupère une nouvelle adresse IP grâce au serveur DHCP de votre box, lancez la commande suivante :
-
+```
 sudo systemctl restart networking
-Récupérez l'adresse IP attribuée avec la commande ip a, puis rendez-vous sur cette adresse IP depuis le navigateur web de votre machine hôte. Vous devriez arriver sur cette page :
+```
+Récupérez l'adresse IP attribuée avec la commande ``` ip a ``` , puis rendez-vous sur cette adresse IP depuis le navigateur web de votre machine hôte. Vous devriez arriver sur cette page :
 
 Lancez également la commande systemctl status apache2 pour vérifier que le service est bien en cours d'exécution et bien activé au démarrage (enabled) :
 
@@ -75,11 +83,13 @@ Lancez également la commande systemctl status apache2 pour vérifier que le ser
 On a également besoin d'un serveur de bases de données (on appelle cela un SGBDR, pour Système de Gestion de Bases de Données Relationnelles). L'un des plus connus est MySQL, et un fork a vu le jour il y a quelques années : MariaDB.
 
 Pour installer MariaDB, lancez la commande suivante :
-
+```
 sudo apt install mariadb-server
+```
 Pour effectuer la configuration initiale de MariaDB, lancez la commande :
-
+```
 sudo mysql_secure_installation
+```
 On va vous demander le mot de passe de l'utilisateur root, appuyez simplement sur la touche Entrée de votre clavier.
 
 Enter current password for root (enter for none): 
@@ -97,19 +107,22 @@ Disallow root login remotely? [Y/n] Y
 Remove test database and access to it? [Y/n] Y
 Reload privilege tables now? [Y/n] Y
 Connectez-vous ensuite au serveur de base de données avec la commande suivante (saisissez le mot de passe choisi à l'étape précédente quand il vous sera demandé) :
-
+```
 mysql -u root -p
-Note
+```
+Note:
 
 Vous êtes maintenant connectés à un shell MySQL, les commandes à taper sont ... des instructions SQL (un langage utilisé pour gérer les bases de données relationnelles) !
 
 Créez un utilisateur (pour éviter de se connecter avec root, même principe que sur un OS) avec les instructions SQL suivantes :
-
+```
 CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'rocknroll';
 GRANT ALL PRIVILEGES ON *.* TO 'dbuser'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit
-Important
+```
+
+Important:
 
 En production, utilisez un mot de passe plus solide que rocknroll !
 
@@ -119,17 +132,20 @@ Vérifiez que le service MariaDB sera bien lancé automatiquement au démarrage 
 
 ## Étape 6 : PHP
 La plupart des applications web sont développées avec le langage PHP : c'est le cas de GLPI, il faut donc qu'on installe l'interpréteur PHP ! Pour cela, lancez les commandes suivantes :
-
+```
 sudo apt install php libapache2-mod-php
+```
 On va également installer plusieurs modules de PHP, souvent utiles (certains sont indispensables, comme le module php-mysql) :
-
+```
 sudo apt install php-{curl,gd,intl,memcache,xml,zip,mbstring,json,mysql,bz2,ldap}
-Une fois l'installation terminée, redémarrez le service Apache avec la commande sudo systemctl restart apache2.
+```
+Une fois l'installation terminée, redémarrez le service Apache avec la commande ```sudo systemctl restart apache2```.
 
 Pour vérifier que PHP est opérationnel, on va créer un fichier très basique en PHP. Lancez la commande suivante :
-
+```
 echo "<?php phpinfo(); ?>" | sudo tee -a /var/www/html/info.php
-Note
+```
+Note:
 
 Le dossier /var/www/html est le dossier exposé/servi par défaut par Apache. On peut y déposer des fichiers HTML ou PHP qui seront servis à nos visiteurs par le serveur Apache.
 
@@ -151,24 +167,27 @@ Puis saisissez votre nom d'utilisateur et votre mot de passe pour établir la co
 Vous pourrez maintenant copier/coller les commandes (faites un clic droit pour coller avec Putty) !
 
 ### Tip:
-Si votre machine hôte tourne sur un système GNU/Linux ou MacOS, vous pouvez simplement ouvrir un terminal et taper la commande ssh <nom_utilisateur>@192.168.1.<IP>, pas besoin d'installer Putty !
+Si votre machine hôte tourne sur un système GNU/Linux ou MacOS, vous pouvez simplement ouvrir un terminal et taper la commande ``` ssh <nom_utilisateur>@192.168.1.<IP> ```, pas besoin d'installer Putty !
 
 ## Étape 8 : GLPI
 Téléchargez GLPI avec l'utilitaire wget (qui permet de télécharger des fichiers depuis Internet) en lançant la commande suivante :
-
+```
 cd ~
 wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
+```
 Vérifiez avec ls que l'archive a bien été téléchargée, puis décompressez-la dans le dossier /var/www/html avec la commande :
-
+```
 sudo tar -xvf glpi-10.0.17.tgz -C /var/www/html
+```
 Vérifiez que l'archive a bien été décompressée au bon endroit avec la commande ls /var/www/html (vous devriez voir un dossier glpi) puis essayez d'accéder à l'adresse http://192.168.1.X/glpi depuis votre navigateur web. 
 
 Sélectionnez la langue, puis suivez l'installation jusqu'à arriver sur l'erreur suivante.
 
 Cette erreur est due à un problème de permissions dans le dossier /var/www/html ! Pour corriger cela, lancez les commandes suivantes :
-
+```
 sudo chown -R <nom_utilisateur>:www-data /var/www/html
 sudo chmod 770 -R /var/www/html
+```
 ⚠️ Remplacez bien <nom_utilisateur> par le nom de votre utilisateur Debian choisi pendant l'installation du système.
 
 💡 On reviendra sur ces deux commandes pendant la correction.
@@ -198,11 +217,15 @@ Si tout s'est bien passé, vous avez maintenant un GLPI opérationnel 🎉
 Pour administrer un serveur de base de données relationnelles tel que MySQL ou MariaDB, on utilise en général une interface web. Il existe deux solutions populaires :
 
 PHPMyAdmin
-Adminer
-PHPMyAdmin
-Pour installer PHPMyAdmin, lancez la commande suivante :
 
+Adminer
+
+PHPMyAdmin
+
+Pour installer PHPMyAdmin, lancez la commande suivante :
+```
 sudo apt install phpmyadmin
+```
 Pendant l'installation, on va vous demander de choisir le serveur web à configurer. Sélectionnez apache2 en appuyant sur la touche Espace de votre clavier AVANT d'appuyer sur Entrée pour valider.
 
 
@@ -218,15 +241,17 @@ Une fois l'installation terminée, vous devriez pouvoir accéder à PHPMyAdmin d
 Une fois connecté, vous pourrez parcourir le contenu de la base de données de GLPI.
 
 Adminer
+
 PHPMyAdmin est une très bonne interface pour MySQL/MariaDB, mais il existe une solution plus légère : Adminer !
 
 Pour l'installer, lancez les commandes suivantes :
-
+```
 cd /var/www/html
 mkdir adminer
 cd adminer
 wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql.php
 mv adminer-4.8.1-mysql.php index.php
+```
 Vous devriez ensuite pouvoir accéder à Adminer à l'adresse http://192.168.1.X/adminer. Utilisez le même nom d'utilisateur et mot de passe que sur PHPMyAdmin pour vous connecter :
 
 
@@ -268,18 +293,19 @@ S'il n'est pas trop tard, vous pouvez toujours essayer de configurer votre serve
 # Étape 2 : sudo
 
 - On lance les commandes :
-
+```
 su -
 
 apt update
 
 apt install sudo
 
-usermod -aG sudo faycal 
+usermod -aG sudo faycal
+```
 
 ![](images/5.png)
 
-- La commande sudo nano /etc/network/interfaces fonctionne bien :
+- La commande ``` sudo nano /etc/network/interfaces ``` fonctionne bien :
 
 ![](images/6.png)
 
@@ -291,13 +317,13 @@ usermod -aG sudo faycal
 
 ![](images/8.png)
 
-- On redémarre la VM et on tape la commande lsmod | grev vmw :
+- On redémarre la VM et on tape la commande ``` lsmod | grev vmw ``` :
 
 ![](images/9.png)
 
 # Étape 4 : Apache
 
-- On installe Apache via la commande  sudo apt install apache2 :
+- On installe Apache via la commande ``` sudo apt install apache2 ``` :
 
 ![](images/10.png)
 
@@ -305,7 +331,7 @@ usermod -aG sudo faycal
 
 ![](images/11.png)
 
-- On récupère une nouvelle adresse IP, on affiche l'adresse ip via la commande ip a et on la rentre dans le navigateur ::
+- On récupère une nouvelle adresse IP, on affiche l'adresse ip via la commande ``` ip a ``` et on la rentre dans le navigateur ::
 
 ![](images/14.png)
 
@@ -388,7 +414,7 @@ usermod -aG sudo faycal
 
 ## PHPMyAdmin :
 
-- On tape la commande sudo apt install phpmyadmin
+- On tape la commande ``` sudo apt install phpmyadmin ```
   
 - On sélectionne Apache2 comme serveur web à configurer :
 
@@ -406,12 +432,14 @@ usermod -aG sudo faycal
 
 - Installation d'Adminer :
 
-  cd /var/www/html
-  
+```  cd /var/www/html ```
+
+ ```
 mkdir adminer
 cd adminer
 wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql.php
 mv adminer-4.8.1-mysql.php index.php
+```
 
 ![](images/37.png)
 
@@ -426,15 +454,17 @@ mv adminer-4.8.1-mysql.php index.php
 
 - On créer le fichier de configuration :
 
-  sudo nano /etc/apache2/sites-available/glpi.conf
+  ``` sudo nano /etc/apache2/sites-available/glpi.conf ```
 
 ![](images/40.png)
 
 - On active le module URL Rewriting :
 
-  sudo a2enmod rewrite
+  ``` sudo a2enmod rewrite ```
 
 - On désactive le site par défaut et on active le site GLPI, puis on redémarre:
+
+  ```
 
   sudo a2dissite 000-default.conf
 
@@ -442,13 +472,17 @@ mv adminer-4.8.1-mysql.php index.php
 
   sudo systemctl restart apache2
 
+  ```
+
 - On constate qu'il ne reste que deux erreurs à traiter :
 
 ![](images/41.png)
 
 - Activation de sécurité pour les cookies de session, on ouvre le fichier de configuration PHP :
 
+```
 sudo nano /etc/apache2/php.ini
+```
 
 - On passe modifie la ligne session.cookie_httponly :
 
@@ -461,17 +495,21 @@ On passe en on et on redémarre Apache :
 
 - Pour les fuseaux horaires, on rempli la base via cette commande :
 
+```
  mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mariadb -u root -p mysql
 
  sudo mariadb -u root -p
+```
 
 - On lance les commandes SQL:
-
+  
+```
  GRANT SELECT ON mysql.time_zone_name TO 'dbuser'@'localhost';
  
  FLUSH PRIVILEGES;
  
  exit
+```
 
 ![](images/45.png)
 
