@@ -61,7 +61,7 @@ On installe les dernières dépendances via la commande ```sudo apt install pyth
 
 Télechargement et compilation de SAMBA:
 Via les commandes suivantes
-```wget http://ftp.samba.org/pub/samba/samba-latest.tar.gz
+```wget http://ftp.samba.org/pub/samba/samba-latest.tar.gz```
 tar zxvf samba-latest.tar.gz
 cd samba-x.x.x
 ./configure --enable-debug --enable-selftest ```
