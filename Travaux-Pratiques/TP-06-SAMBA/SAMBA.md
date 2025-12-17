@@ -174,6 +174,37 @@ Image 31
 
 Image 32
 
+# 4.2 : Outils RSAT
+
+Ajout de la fonctionnalité RSAT :
+
+Image 33
+
+Image 34
+
+Image 35
+
+Dans la console mmc :
+
+Image 36
+
+Image 37
+
+Image 38
+
+Ajout d'un nouvel utilisateur :
+
+Image 39
+
+Image 40
+
+Image 41
+
+Image 42
+
+
+# 4.3 : Partage Samba
+
 
 
 
