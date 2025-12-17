@@ -74,9 +74,39 @@ Image 13
 
 On peut lancer l'installation :
 
-``` make
-sudo make install ```
+``` make ```, on patiente puis :
+``` sudo make install ```
 
+Image 14
 
+## 2.2 : Contrôleur de domaine
+
+Il n'ya pas de fichier de conf (smb.conf) dans le dossier /usr/local/samba/etc :
+
+Image 15
+
+Configuration du serveur en tant que controleur du domaine :
+
+```sudo /usr/local/samba/bin/samba-tool domain provision```
+
+Image 16
+
+Et on lance le reboot.
+
+## 2.3 : Premier démarrage et test
+
+Les versions du serveur et du client sont identiques :
+
+Image 17
+
+Les partages de base netlogon et sysvol sont bien présents :
+
+Image 18
+
+On se connecte via la commande ```/usr/local/samba/bin/smbclient //localhost/netlogon -UAdministrator```, on peut désormais se connecter :
+
+Image 19
+
+# Étape 3 : configuration
 
 
