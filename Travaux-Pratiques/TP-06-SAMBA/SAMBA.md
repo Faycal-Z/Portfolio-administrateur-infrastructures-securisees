@@ -109,4 +109,72 @@ Image 19
 
 # Étape 3 : configuration
 
+## 3.1 : Configuration DNS
+
+Modification du fichier fichier /etc/resolv.conf :
+
+``` sudo nano /etc/resolv.conf ```
+
+Image 20
+
+Image 21
+
+Modification du fichier krb5.conf via la commande ```sudo nano /usr/local/samba/share/setup/krb5.conf ``` :
+
+Image 22
+
+Création du lien symbolique depuis cette config vers /etc via la commande ```sudo ln -sf /usr/local/samba/share/setup/krb5.conf /etc/krb5.conf```
+Puis on reboot.
+
+## 3.2 : Tester Kerberos
+
+On relance SAMBA et on teste la connexion : 
+
+Image 23
+
+On désactive l'expiration du mot de passe :
+
+Image 24
+
+## 3.3 : Configuration NTP
+
+Configuration du service NTP via la commande ```sudo nano /etc/ntpsec/ntp.conf```, on modifie ainsi le contenu :
+
+Image 25
+
+Et on redémarre le daemon via la commande sudo ```systemctl restart ntp```.
+
+## 3.4 : Zone inversée DNS
+
+Création de la zone inverssée avec la commande ```sudo /usr/local/samba/bin/samba-tool dns zonecreate debianSRV 0.0.10.in-addr.arpa --username=administrator```
+
+Image 26
+
+# Étape 4 : clients Windows
+
+Installation et configuration de la VM Windows :
+
+Image 27
+
+On ping bien notre serveur : 
+
+Image 28
+
+On ajoute l'ordinateur au domaine :
+
+Image 29
+
+Image 30
+
+On redémarre.
+
+On peut bien se connecter au domaine :
+
+Image 31
+
+Image 32
+
+
+
+
 
