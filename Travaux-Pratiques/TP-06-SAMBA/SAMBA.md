@@ -205,7 +205,83 @@ Image 42
 
 # 4.3 : Partage Samba
 
+Modification du fichier de configuration :
 
+Image 43
+
+On repere le processus :
+
+Image 45
+
+On tue le processus :
+
+Image 46
+
+Et on relance SAMBA via la commande ```sudo /usr/local/samba/sbin/samba```
+
+On crée le dossier de partage et on modifie les permissions :
+
+Image 47
+
+Image 48
+
+On accède bien au partage via la VM Windows :
+
+Image 49
+
+Création de l'Unité d'Organisation : 
+
+Image 50
+
+Et on déplace l'utilisateur crée dans L'UO Aldebaran :
+
+Image 51
+
+On crée la GPO :
+
+Image 52
+
+Image 53
+
+Image 54
+
+On paramètre la GPO :
+
+Image 55
+
+On spécifie l'emplacement du dossier, et la lettre P :
+
+Image 56
+
+Le lecteur apparait bien :
+
+Image 57
+
+Vérification sur la session de l'utilisateur Jean Arc :
+
+Image 58
+
+Le lecteur P apparait bien.
+
+# Bonus : création d'un service Systemd
+
+On crée le fichier de service :
+
+```sudo nano /etc/systemd/system/samba-ad-dc.service```
+
+On rempli la fiche : 
+
+Image 59
+
+On actualise, on active le service :
+
+Image 60
+
+Image 61
+
+Après redémarrage le lecteur P est bien disponible:
+
+Image 62
 
 
 
