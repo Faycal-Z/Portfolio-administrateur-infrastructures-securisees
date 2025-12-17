@@ -388,9 +388,9 @@ Essayez de créer un service Systemd pour que Samba se lance automatiquement au 
 
 ## 1.1 : Création VM et installation :
 
-image 1
+![](images/1.png)
 
-Image 2
+![](images/2.png)
 
 ## 1.2 : Installation de la commande sudo :
 
@@ -400,50 +400,46 @@ apt update
 apt install sudo
 ```
 
-Image 3
+![](images/3.png)
 
 - Ajout de l'utilisateur au groupe sudo:
 ```
 usermod -aG sudo faycal
 ```
-Image 4
+![](images/4.png)
 
 ## 1.3 : Configuration réseau
 
 - Commande ```ip a``` pour récupérer l'adresse IP:
 
-  Image 5
+![](images/5.png)
 
 - Ouverture du fichier à modifier via la commande ```sudo nano /etc/network/interfaces``` et modification du fichier :
   
-Image 6
+![](images/6.png)
 
 - Modification du fichier /etc/hosts :
 
-  sudo nano /etc/hosts
+  ```sudo nano /etc/hosts```
 
-Image 7
+![](images/7.png)
 
-Modification dud fichier /etc/hostname :
+Modification du fichier /etc/hostname :
 
-Image 8
+![](images/8.png)
 
 - Redémarrage via la commande sudo reboot, et vérification via la commande ip a :
 
-Image 9
+![](images/9.png)
 
 # Étape 2 : Samba
   
 - Installation des dépendances  
-On confirme le royaume par défault :
+On confirme le royaume par défault, on choisi le serveur Kerberos, ainsi que le serveur administratif :
 
-Image 9
+![](images/10.png)
 
-On choisi le serveur Kerberos, ainsi que le serveur administratif :
-
-Image 10
-
-Image 11
+![](images/11.png)
 
 On installe les dernières dépendances via la commande ```sudo apt install python3-dev liblmdb-dev flex bison libgpgme11-dev libparse-yapp-perl libjansson-dev libarchive-dev libdbus-1-dev python3-pyasn1 python3-markdown python3-dnspython libjson-perl python3-iso8601```.
 
@@ -454,30 +450,29 @@ tar zxvf samba-latest.tar.gz
 cd samba-x.x.x
 ./configure --enable-debug --enable-selftest ```
 
-Image 12
+![](images/12.png)
 
 La configuration est bien terminée :
 
-Image 13
+![](images/13.png)
 
 On peut lancer l'installation :
 
 ``` make ```, on patiente puis :
 ``` sudo make install ```
 
-Image 14
+![](images/14.png)
 
 ## 2.2 : Contrôleur de domaine
 
 Il n'ya pas de fichier de conf (smb.conf) dans le dossier /usr/local/samba/etc :
-
-Image 15
+![](images/15.png)
 
 Configuration du serveur en tant que controleur du domaine :
 
 ```sudo /usr/local/samba/bin/samba-tool domain provision```
 
-Image 16
+![](images/16.png)
 
 Et on lance le reboot.
 
@@ -485,15 +480,15 @@ Et on lance le reboot.
 
 Les versions du serveur et du client sont identiques :
 
-Image 17
+![](images/17.png)
 
 Les partages de base netlogon et sysvol sont bien présents :
 
-Image 18
+![](images/18.png)
 
 On se connecte via la commande ```/usr/local/samba/bin/smbclient //localhost/netlogon -UAdministrator```, on peut désormais se connecter :
 
-Image 19
+![](images/19.png)
 
 # Étape 3 : configuration
 
@@ -503,13 +498,13 @@ Modification du fichier fichier /etc/resolv.conf :
 
 ``` sudo nano /etc/resolv.conf ```
 
-Image 20
+![](images/20.png)
 
-Image 21
+![](images/21.png)
 
 Modification du fichier krb5.conf via la commande ```sudo nano /usr/local/samba/share/setup/krb5.conf ``` :
 
-Image 22
+![](images/22.png)
 
 Création du lien symbolique depuis cette config vers /etc via la commande ```sudo ln -sf /usr/local/samba/share/setup/krb5.conf /etc/krb5.conf```
 Puis on reboot.
@@ -518,17 +513,17 @@ Puis on reboot.
 
 On relance SAMBA et on teste la connexion : 
 
-Image 23
+![](images/23.png)
 
 On désactive l'expiration du mot de passe :
 
-Image 24
+![](images/24.png)
 
 ## 3.3 : Configuration NTP
 
 Configuration du service NTP via la commande ```sudo nano /etc/ntpsec/ntp.conf```, on modifie ainsi le contenu :
 
-Image 25
+![](images/25.png)
 
 Et on redémarre le daemon via la commande sudo ```systemctl restart ntp```.
 
@@ -536,118 +531,117 @@ Et on redémarre le daemon via la commande sudo ```systemctl restart ntp```.
 
 Création de la zone inverssée avec la commande ```sudo /usr/local/samba/bin/samba-tool dns zonecreate debianSRV 0.0.10.in-addr.arpa --username=administrator```
 
-Image 26
+![](images/26.png)
 
 # Étape 4 : clients Windows
 
 Installation et configuration de la VM Windows :
 
-Image 27
+![](images/27.png)
 
 On ping bien notre serveur : 
 
-Image 28
+![](images/28.png)
 
 On ajoute l'ordinateur au domaine :
 
-Image 29
+![](images/29.png)
 
-Image 30
+![](images/30.png)
 
 On redémarre.
 
 On peut bien se connecter au domaine :
 
-Image 31
+![](images/31.png)
 
-Image 32
+![](images/32.png)
 
 # 4.2 : Outils RSAT
 
 Ajout de la fonctionnalité RSAT :
 
-Image 33
+![](images/35.png)
 
-Image 34
+![](images/36.png)
 
-Image 35
+![](images/37.png)
 
 Dans la console mmc :
 
-Image 36
+![](images/38.png)
 
-Image 37
+![](images/39.png)
 
-Image 38
+![](images/40.png)
 
 Ajout d'un nouvel utilisateur :
 
-Image 39
+![](images/41.png)
 
-Image 40
+![](images/42.png)
 
-Image 41
+![](images/43.png)
 
-Image 42
+![](images/44.png)
 
 
 # 4.3 : Partage Samba
 
 Modification du fichier de configuration :
 
-Image 43
+![](images/45.png)
 
 On repere le processus :
 
-Image 45
+![](images/53.png)
 
 On tue le processus :
 
-Image 46
+![](images/54.png)
 
 Et on relance SAMBA via la commande ```sudo /usr/local/samba/sbin/samba```
 
 On crée le dossier de partage et on modifie les permissions :
 
-Image 47
+![](images/55.png)
 
-Image 48
 
 On accède bien au partage via la VM Windows :
 
-Image 49
+![](images/46.png)
 
 Création de l'Unité d'Organisation : 
 
-Image 50
+![](images/47.png)
 
 Et on déplace l'utilisateur crée dans L'UO Aldebaran :
 
-Image 51
+![](images/48.png)
 
 On crée la GPO :
 
-Image 52
+![](images/49.png)
 
-Image 53
+![](images/50.png)
 
-Image 54
+![](images/51.png)
 
 On paramètre la GPO :
 
-Image 55
+![](images/52.png)
 
 On spécifie l'emplacement du dossier, et la lettre P :
 
-Image 56
+![](images/56.png)
 
 Le lecteur apparait bien :
 
-Image 57
+![](images/57.png)
 
 Vérification sur la session de l'utilisateur Jean Arc :
 
-Image 58
+![](images/58.png)
 
 Le lecteur P apparait bien.
 
@@ -659,17 +653,17 @@ On crée le fichier de service :
 
 On rempli la fiche : 
 
-Image 59
+![](images/59.png)
 
 On actualise, on active le service :
 
-Image 60
+![](images/60.png)
 
-Image 61
+![](images/61.png)
 
 Après redémarrage le lecteur P est bien disponible:
 
-Image 62
+![](images/62.png)
 
 
 
