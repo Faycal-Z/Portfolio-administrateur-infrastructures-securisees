@@ -529,12 +529,12 @@ La VM debian 13 à bien été installée sans interface graphique.
   ```apt update
 apt install sudo -y```
 
-Image 1
+(./images/1.png)
 
 - Ajout de l'utilisateur faycal au groupe sudo :
   ```usermod -aG sudo faycal```
 
-Image 2
+(./images/2.png)
 
 - Modification du fichier de configuration 
 
