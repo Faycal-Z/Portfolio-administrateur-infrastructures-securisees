@@ -739,6 +739,8 @@ Image 32
 
 ```sudo nano /etc/asterisk/voicemail.conf```
 
+Le code pin sera 1234: 
+
 Image 33
 
 - Mise à jour du fichier extensions.conf :
@@ -746,6 +748,67 @@ Image 33
   On paramètre pour que le téléphone sonne 20 secondes puis la messagerie sera lancée, il faudra taper 888 pour la consulter:
 
 Image 34
+
+On redémarre Astérisk.
+
+La messsagerie est bien lancée au bout de 20 secondes, et le message vocal est disponible sur le téléphone via un appel au 888 en entrant notre code secret !
+
+## Interception d'appels :
+
+- On crée des groupes dans pjsip.conf :
+
+On ajoute les lignes named_call_group et named_pickup_group dans les sections 123 et 456
+
+Image 35
+
+- On modifie le fichier extensions.conf et on ajoute ces 2 lignes:
+
+Image 36
+
+On oublie pas de redémarrer Asterisk et l'interception d'appels fonctionne !
+
+## Salle de conférence :
+
+- Il faut modifier le DialPlan, donc le fichier extensions.conf :
+
+On définie le numéro par défault de la conférence à 900 et on ajoute un message d'accueil :
+   Image 37
+
+On redémarre Astérisk, et la conférence est bien joignable au 900 !
+
+Image 38
+
+## Menu interactif
+
+- Modification du fichier extensions.conf :
+
+  Ajout du point d'entrée :
+
+  Image 39
+
+  Ajout du menu Interactif qui décroche, attend que l'appelant appuie sur une touche et le redirige vers le bon destinataire en fonction de son choix :
+
+ Image 40
+
+ On redémarre Astérisk, en composant le 777 via notre téléphone et en faisant le choix 1 le PC sonne !
+
+# Appels Vidéos :
+
+- Il faut autoriser les codecs videos, on modifie le fichier pjsip.conf :
+
+On ajoute les lignes allow=h264 et allow=vp8
+
+Image 41
+
+On redémarre Astérisk. 
+
+On installe Linphone par exemple, pour vérifier que la video fonctionne.
+  
+
+ 
+  
+
+
 
 
 
