@@ -609,8 +609,7 @@ Il y'a une erreur :
 
 On relance la configuration :
 
-```
-./configure```
+```./configure```
 
 ```./configure --with-jansson-bundled```
 
