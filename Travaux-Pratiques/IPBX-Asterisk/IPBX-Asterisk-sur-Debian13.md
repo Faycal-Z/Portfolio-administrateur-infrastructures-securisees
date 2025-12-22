@@ -694,6 +694,62 @@ Image 23
 
 Image 24
 
+- Installation et configuration dud softphone ZOIPER :
+
+Image 25
+
+Image 26
+
+Image 27
+
+Image 28
+
+# Étape 6 : deuxième ligne et appel
+
+- Modification du fichier pjsip.conf :
+
+```sudo nano /etc/asterisk/pjsip.conf```
+
+Image 29
+
+- Modification du fichier extensions.conf :
+
+```sudo nano /etc/asterisk/extensions.conf```
+
+Image 30
+
+- On relance Asterisk :
+
+ ```sudo systemctl restart asterisk```
+
+L'appel entre le PC et le smartphone fonctionne :
+
+Image 31
+
+Image 32
+
+# Bonus
+
+## Mise en place d'une messagerie vocale
+
+
+- Sauvegarde du fichier original voicemail.conf, et création du nouveau fichier :
+
+```sudo mv /etc/asterisk/voicemail.conf /etc/asterisk/voicemail.conf.backup```
+
+```sudo nano /etc/asterisk/voicemail.conf```
+
+Image 33
+
+- Mise à jour du fichier extensions.conf :
+
+  On paramètre pour que le téléphone sonne 20 secondes puis la messagerie sera lancée, il faudra taper 888 pour la consulter:
+
+Image 34
+
+
+
+ 
 
 
 
