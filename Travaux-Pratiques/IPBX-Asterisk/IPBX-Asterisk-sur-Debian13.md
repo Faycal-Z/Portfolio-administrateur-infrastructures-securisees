@@ -526,21 +526,21 @@ La VM debian 13 à bien été installée sans interface graphique.
 # Étape 2 : sudo, IP statique & SSH
 
 - Installation de sudo :
-  ```apt update
-apt install sudo -y```
+  ```apt update```
+```apt install sudo -y```
 
-(./images/1.png)
+![](images/1.png)
 
 - Ajout de l'utilisateur faycal au groupe sudo :
   ```usermod -aG sudo faycal```
 
-(./images/2.png)
+![](images/2.png)
 
 - Modification du fichier de configuration 
 
 ```sudo nano /etc/network/interfaces```
 
-Image 3
+![](images/3.png)
 
 - On redémarre :
 
@@ -548,27 +548,27 @@ Image 3
 
 - Le pc hote ping bien la VM :
 
-Image 4
+![](images/4.png)
 
 # Étape 3 : Installation d'Asterisk
 
 - On crée le dossier :
 
-Image 5
+![](images/5.png)
 
 - On télécharge les archives, les 3 fichiers sont bie présents :
 
-Image 6
+![](images/6.png)
 
 - On extrait les archives, et on installe le compilateur.
 
 - Installation de Dhadi :
 
-Image 7
+![](images/7.png)
 
 Fichier README.md
 
-Image 8
+![](images/8.png)
 
 - Installation des dépendances :
 
@@ -581,13 +581,13 @@ sudo apt install libusb-1.0-0-dev libglib2.0-dev
 
 - Modification des fichiers pour résoudre l'erreur :
 
-  Image 9
+![](images/9.png)
 
-  Image 10
+![](images/10.png)
 
-  Image 11
+![](images/11.png)
 
-  Image 12
+![](images/12.png)
 
 - Compilation :
 
@@ -600,7 +600,7 @@ sudo apt install libusb-1.0-0-dev libglib2.0-dev
 ```cd ../asterisk-22.7.0/
 less README.md```
 
-Image 13
+![](images/13.png)
 
 ```./configure```
 
@@ -624,9 +624,9 @@ On relance la configuration :
   
 ```make menuselect```
 
-Image 14
+![](images/14.png)
 
-Image 15
+![](images/15.png)
 
 On sauvegarde.
 
@@ -642,15 +642,15 @@ Compilation et installation d'Asterisk :
 
 - Tout fonctionne :
   
-Image 16
+![](images/16.png)
 
-Image 17
+![](images/17.png)
 
 - On install le script de rotation des log :
 
 ```sudo make install-logrotate```
 
-Image 18
+![](images/18.png)
 
 # Étape 4 : Configuration d'Asterisk
 
@@ -662,7 +662,7 @@ Image 18
 
 ```sudo nano /etc/asterisk/pjsip.conf```
 
-Image 19
+![](images/19.png)
 
 
 ## 4.2 : extensions.conf
@@ -673,36 +673,36 @@ Image 19
 
 ```sudo nano /etc/asterisk/extensions.conf```
 
-Image 20
+![](images/20.png)
 
 
 # Étape 5 : premier lancement et test
 
 - Démarrage d'Asterisk :
 
-Image 21
+![](images/21.png)
 
 - Installation des outils réseaux :
 
-Image 22
+![](images/22.png)
 
 Le PJSIP est bien opérationnel :
 
-Image 23
+![](images/23.png)
 
 - Activation de la surveillance des log :
 
-Image 24
+![](images/24.png)
 
 - Installation et configuration dud softphone ZOIPER :
 
-Image 25
+![](images/25.png)
 
-Image 26
+![](images/26.png)
 
-Image 27
+![](images/27.png)
 
-Image 28
+![](images/28.png)
 
 # Étape 6 : deuxième ligne et appel
 
@@ -710,13 +710,13 @@ Image 28
 
 ```sudo nano /etc/asterisk/pjsip.conf```
 
-Image 29
+![](images/29.png)
 
 - Modification du fichier extensions.conf :
 
 ```sudo nano /etc/asterisk/extensions.conf```
 
-Image 30
+![](images/30.png)
 
 - On relance Asterisk :
 
@@ -724,9 +724,9 @@ Image 30
 
 L'appel entre le PC et le smartphone fonctionne :
 
-Image 31
+![](images/31.png)
 
-Image 32
+![](images/32.png)
 
 # Bonus
 
@@ -741,13 +741,13 @@ Image 32
 
 Le code pin sera 1234: 
 
-Image 33
+![](images/33.png)
 
 - Mise à jour du fichier extensions.conf :
 
   On paramètre pour que le téléphone sonne 20 secondes puis la messagerie sera lancée, il faudra taper 888 pour la consulter:
 
-Image 34
+![](images/34.png)
 
 On redémarre Astérisk.
 
@@ -759,11 +759,11 @@ La messsagerie est bien lancée au bout de 20 secondes, et le message vocal est 
 
 On ajoute les lignes named_call_group et named_pickup_group dans les sections 123 et 456
 
-Image 35
+![](images/35.png)
 
 - On modifie le fichier extensions.conf et on ajoute ces 2 lignes:
 
-Image 36
+![](images/36.png)
 
 On oublie pas de redémarrer Asterisk et l'interception d'appels fonctionne !
 
@@ -772,11 +772,12 @@ On oublie pas de redémarrer Asterisk et l'interception d'appels fonctionne !
 - Il faut modifier le DialPlan, donc le fichier extensions.conf :
 
 On définie le numéro par défault de la conférence à 900 et on ajoute un message d'accueil :
-   Image 37
+
+![](images/37.png)
 
 On redémarre Astérisk, et la conférence est bien joignable au 900 !
 
-Image 38
+![](images/38.png)
 
 ## Menu interactif
 
@@ -784,11 +785,11 @@ Image 38
 
   Ajout du point d'entrée :
 
-  Image 39
+![](images/39.png)
 
   Ajout du menu Interactif qui décroche, attend que l'appelant appuie sur une touche et le redirige vers le bon destinataire en fonction de son choix :
 
- Image 40
+![](images/40.png)
 
  On redémarre Astérisk, en composant le 777 via notre téléphone et en faisant le choix 1 le PC sonne !
 
@@ -798,7 +799,7 @@ Image 38
 
 On ajoute les lignes allow=h264 et allow=vp8
 
-Image 41
+![](images/41.png)
 
 On redémarre Astérisk. 
 
