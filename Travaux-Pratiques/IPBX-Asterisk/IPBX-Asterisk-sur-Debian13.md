@@ -597,8 +597,8 @@ sudo apt install libusb-1.0-0-dev libglib2.0-dev
 
 # 3.2 : libpri
 
-```cd ../asterisk-22.7.0/
-less README.md```
+```cd ../asterisk-22.7.0/```
+```less README.md```
 
 ![](images/13.png)
 
