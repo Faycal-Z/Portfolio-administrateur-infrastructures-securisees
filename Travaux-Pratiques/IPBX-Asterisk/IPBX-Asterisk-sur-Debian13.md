@@ -597,6 +597,114 @@ sudo apt install libusb-1.0-0-dev libglib2.0-dev
 
 # 3.2 : libpri
 
+```cd ../asterisk-22.7.0/
+less README.md```
+
+Image 13
+
+```./configure```
+
+Il y'a une erreur :
+```sudo apt install libedit-dev```
+
+On relance la configuration :
+
+```
+./configure```
+
+```./configure --with-jansson-bundled```
+
+```sudo apt install libxml2-dev```
+
+```sudo apt install libssl-dev```
+
+```./configure --with-jansson-bundled```
+
+- Ajout de modules :
+  
+```make menuselect```
+
+Image 14
+
+Image 15
+
+On sauvegarde.
+
+Compilation et installation d'Asterisk :
+
+```make```
+```sudo make install```
+
+- Création des fichiers de config :
+
+```sudo make samples```
+```sudo make config```
+
+- Tout fonctionne :
+  
+Image 16
+
+Image 17
+
+- On install le script de rotation des log :
+
+```sudo make install-logrotate```
+
+Image 18
+
+# Étape 4 : Configuration d'Asterisk
+
+## 4.1 : pjsip.conf
+
+- Sauvegarde du fichier original, et création du nouveau fichier :
+
+```sudo mv /etc/asterisk/pjsip.conf /etc/asterisk/pjsip.conf.backup```
+
+```sudo nano /etc/asterisk/pjsip.conf```
+
+Image 19
+
+
+## 4.2 : extensions.conf
+
+- Sauvegarde du fichier original, et création du nouveau fichier :
+
+```sudo mv /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.backup```
+
+```sudo nano /etc/asterisk/extensions.conf```
+
+Image 20
+
+
+# Étape 5 : premier lancement et test
+
+- Démarrage d'Asterisk :
+
+Image 21
+
+- Installation des outils réseaux :
+
+Image 22
+
+Le PJSIP est bien opérationnel :
+
+Image 23
+
+- Activation de la surveillance des log :
+
+Image 24
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
