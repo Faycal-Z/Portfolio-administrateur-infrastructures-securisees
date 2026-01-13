@@ -1,47 +1,34 @@
-🛠️ Installation et Configuration de Veeam Backup & Replication (TP-S08)
-Ce document résume l'installation du serveur de sauvegarde Veeam sur une machine virtuelle Windows 10 Pro, hébergée sous Proxmox, dans le cadre du TP de sauvegarde.
+🛠️ Installation et Configuration de Veeam Backup & Replication
+Pour cet exercice, j'ai procédé à l'installation du serveur de sauvegarde Veeam sur une machine virtuelle Windows 10 Pro, hébergée sous Proxmox.
 
 1. Création de la Machine Virtuelle (Proxmox)
-Création d'une VM Windows 10 respectant les prérequis du TP pour supporter la charge de Veeam.
+Création d'une VM Windows 10 respectant les prérequis du TP pour supporter la charge de Veeam:
 
-Nom : TP-S08-Veeam
+![MV](./images/1.png)
 
-OS : Windows 10 Pro
-
-CPU : 2 vCores (Type Host)
-
-RAM : 4 Go (4096 Mo)
-
-Disque : 100 Go
-
-Réseau : Carte Intel E1000 sur le pont vmbr2 (LAN)
-
-(Insérer ici une capture d'écran de l'onglet "Résumé" ou "Matériel" de Proxmox)
-
-2. Configuration Initiale de Windows & Clonage
-Après l'installation standard de Windows 10, plusieurs actions préparatoires ont été effectuées.
+2. Configuration Initiale de Windows & Clonage d'une deuxième VM
+Après l'installation standard de Windows 10, j'ai éffectué plusieurs choses.
 
 A. Activation du compte Administrateur
-Pour respecter les consignes de sécurité du TP et avoir les pleins droits, le compte Administrateur intégré a été activé via l'invite de commande :
+Pour respecter les consignes de sécurité et avoir les pleins droits, le compte Administrateur intégré a été activé via l'invite de commande :
 
-DOS
+![CompteAdministrateur](./images/2.png)
 
-net user administrateur /active:yes
-net user administrateur * (Définition du mot de passe)
+```net user administrateur /active:yes```
+
+```net user administrateur * ```
+
 B. Clonage pour le futur client
-Avant d'installer Veeam (pour garder une image "propre"), la VM a été clonée pour créer le futur poste client.
+Avant d'installer Veeam, une VM TP-S08-Win10Client a été clonée pour créer le futur poste client.
 
-Nom du clone : TP-S08-Win10Client
-
-Mode : Full Clone
-
-(Insérer ici une capture d'écran de Proxmox montrant les deux VMs)
 
 3. Configuration du Serveur Veeam
-Sur la VM TP-S08-Veeam, la configuration réseau et système a été finalisée.
 
 A. Renommage et IP Statique
+
 Nom de la machine : Veeam
+
+![MV](./images/4.png)
 
 Adressage IP : Statique
 
@@ -51,22 +38,36 @@ Masque : 255.255.0.0 (/16)
 
 Passerelle : 10.0.0.1
 
-DNS : 8.8.8.8 (Temporaire pour l'installation)
+DNS : 10.0.0.1 
 
-(Insérer ici une capture d'écran de la configuration IPv4 ncpa.cpl)
+![IP](./images/3.png)
 
 4. Installation de Veeam Backup & Replication
-L'installation a été réalisée à partir de l'image ISO montée directement via le lecteur CD virtuel de Proxmox.
 
-Version : Veeam Backup & Replication 12.2 (Community Edition)
+L'installation a été réalisée à partir de l'image ISO montée directement via le lecteur CD virtuel de Proxmox:
 
-Licence : Aucune (Mode gratuit Community)
+![Installation-Veeam](./images/5.png)
 
 Compte de service : LOCAL SYSTEM account (Par défaut)
 
 Base de données : PostgreSQL (Installé automatiquement)
 
-(Insérer ici une capture d'écran de l'installateur Veeam)
+![Installation-Veeam](./images/6.png)
+
+![Installation-Veeam](./images/7.png)
+
+![Installation-Veeam](./images/8.png)
+
+![Installation-Veeam](./images/9.png)
+
+![Installation-Veeam](./images/10.png)
+
+![Installation-Veeam](./images/11.png)
+
 
 5. Validation
-L'installation s'est terminée avec succès. L'accès à la console Veeam est fonctionnel via l'écran de login.
+L'installation s'est terminée avec succès. L'accès à la console Veeam est fonctionnel via l'écran de login:
+
+![Installation-Veeam](./images/12.png)
+
+![Installation-Veeam](./images/13.png)
