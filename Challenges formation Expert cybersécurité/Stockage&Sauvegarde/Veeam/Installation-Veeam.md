@@ -7,7 +7,7 @@ Création d'une VM Windows 10 respectant les prérequis du TP pour supporter la 
 ![MV](./images/1.png)
 
 # 2. Configuration Initiale de Windows & Clonage d'une deuxième VM
-Après l'installation standard de Windows 10, j'ai éffectué plusieurs choses.
+Après l'installation standard de Windows 10, j'ai éffectué plusieurs choses:
 
 ## Activation du compte Administrateur
 Pour respecter les consignes de sécurité et avoir les pleins droits, le compte Administrateur intégré a été activé via l'invite de commande :
