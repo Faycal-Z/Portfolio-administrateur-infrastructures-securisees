@@ -143,15 +143,16 @@ Mise en place d'un déclencheur avec une sévérité "High". L'expression vérif
 
 ![Trigger](images/26a.png)
 ![Trigger](images/27a.png)
+![Trigger](images/28a.png)
 
 ### Simulation d'Incident et Résolution
 Test effectué sur la VM Windows :
 
 **Phase 1 : Incident**
 Suppression manuelle du fichier cible. Zabbix détecte l'anomalie et passe le statut en **PROBLEM** (Sévérité High).
-![Alerte](images/28a.png)
+![Alerte](images/29a.png)
 
 **Phase 2 : Retour à la normale**
 Restauration du fichier. Zabbix détecte la présence du fichier au scan suivant et clôture automatiquement l'incident (**RESOLVED**).
-![Resolved](images/29a.png)
+![Resolved](images/30a.png)
 
