@@ -102,23 +102,23 @@ Lors de l'installation, j'ai configuré les paramètres de connexion pour permet
 * **Hostname** : `DESKTOP-ARH9T3V` (Identique au nom de la machine).
 * **Zabbix Server IP** : `10.0.0.100` (Adresse de mon serveur de supervision).
 
-![Configuration de l'installeur MSI](Capture d'écran 2026-01-20 160531.png)
+![Agent-Windows](images/40.png)
 
 Une fois l'installation terminée, j'ai vérifié via la console `services.msc` que le service **Zabbix Agent 2** était bien en cours d'exécution et en démarrage automatique.
 
-![Vérification du service Windows](Capture d'écran 2026-01-20 160656.png)
+![Services-Windows](images/41.png)
 
 ### Déclaration de l'Hôte dans Zabbix
 Côté serveur, j'ai ajouté l'hôte en respectant strictement le nom d'hôte défini sur l'agent.
 * **Template utilisé** : `Windows by Zabbix agent` (pour remonter CPU, RAM, Services, Réseau).
 * **Interface** : Adresse IP de la VM Windows (`10.0.0.80`) sur le port standard `10050`.
 
-![Création de l'hôte dans l'interface Web](Capture d'écran 2026-01-20 161212.png)
+![Hote-Zabbix](images/42.png)
 
 ### Validation de la Connectivité
 Après quelques secondes, la communication est établie. L'icône **ZBX** passe au vert, confirmant que le serveur reçoit bien les métriques de la machine Windows.
 
-![Validation de la disponibilité (ZBX Vert)](Capture d'écran 2026-01-20 161352.png)
+![Success](images/43.png)
 
 
 
