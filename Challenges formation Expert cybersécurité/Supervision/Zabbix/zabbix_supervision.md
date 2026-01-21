@@ -1,4 +1,6 @@
+# Supervision Avancée et Scénarios d'Alerte
 
+Mise en place de règles de supervision spécifiques sur des environnements Linux et Windows via Zabbix.
 
 Configuration d'un conteneur Debian 12:
 
@@ -50,9 +52,11 @@ Edition du fichier de configuration :
 
 ![Configuration](images/14a.png)
 
-'''systemctl restart zabbix-agent2'''
-'''systemctl enable zabbix-agent2'''
-'''systemctl status zabbix-agent2'''
+```systemctl restart zabbix-agent2```
+
+```systemctl enable zabbix-agent2```
+
+```systemctl status zabbix-agent2```
 
 L'agent est bien démarré :
 
@@ -88,6 +92,34 @@ Ajout des widgets CPU, Mémoire, Disponibilité et Problèmes actifs :
 ![Widgets](images/23a.png)
 ![Widgets](images/24a.png)
 
+## Intégration de l'Environnement Windows
+
+Avant de créer des alertes personnalisées, j'ai intégré une machine virtuelle Windows 10 (Client) au parc surveillé pour démontrer la capacité de Zabbix à superviser des OS Microsoft via l'agent officiel.
+
+### Installation et Configuration de l'Agent
+J'ai utilisé l'installateur MSI (`zabbix_agent2-7.4.6`) pour déployer l'agent.
+Lors de l'installation, j'ai configuré les paramètres de connexion pour permettre la communication avec le serveur Zabbix :
+* **Hostname** : `DESKTOP-ARH9T3V` (Identique au nom de la machine).
+* **Zabbix Server IP** : `10.0.0.100` (Adresse de mon serveur de supervision).
+
+![Configuration de l'installeur MSI](Capture d'écran 2026-01-20 160531.png)
+
+Une fois l'installation terminée, j'ai vérifié via la console `services.msc` que le service **Zabbix Agent 2** était bien en cours d'exécution et en démarrage automatique.
+
+![Vérification du service Windows](Capture d'écran 2026-01-20 160656.png)
+
+### Déclaration de l'Hôte dans Zabbix
+Côté serveur, j'ai ajouté l'hôte en respectant strictement le nom d'hôte défini sur l'agent.
+* **Template utilisé** : `Windows by Zabbix agent` (pour remonter CPU, RAM, Services, Réseau).
+* **Interface** : Adresse IP de la VM Windows (`10.0.0.80`) sur le port standard `10050`.
+
+![Création de l'hôte dans l'interface Web](Capture d'écran 2026-01-20 161212.png)
+
+### Validation de la Connectivité
+Après quelques secondes, la communication est établie. L'icône **ZBX** passe au vert, confirmant que le serveur reçoit bien les métriques de la machine Windows.
+
+![Validation de la disponibilité (ZBX Vert)](Capture d'écran 2026-01-20 161352.png)
+
 
 
 ## Surveillance Critique de Fichiers :
@@ -96,7 +128,7 @@ Afin d'aller au-delà de la supervision standard (CPU/RAM), j'ai mis en place un
 
 **Objectif** : Détecter immédiatement la suppression accidentelle ou malveillante d'un fichier sensible (simulé ici par `C:\test.txt`) et lever une alerte critique.
 
-### 1. Configuration de l'Item (Le Capteur)
+### Configuration de l'Item (Le Capteur)
 Création d'un item utilisant la clé native de l'agent Zabbix pour interroger le système de fichiers.
 * **Key** : `vfs.file.exists[C:\test.txt]`
 * **Logique** : Retourne `1` si le fichier est présent, `0` s'il est absent.
@@ -104,7 +136,7 @@ Création d'un item utilisant la clé native de l'agent Zabbix pour interroger l
 
 ![Item-Zabbix](images/25a.png)
 
-### 2. Configuration du Trigger (L'Alerte)
+### Configuration du Trigger (L'Alerte)
 Mise en place d'un déclencheur avec une sévérité "High". L'expression vérifie la dernière valeur remontée par l'agent.
 * **Expression** : `last(/DESKTOP-ARH9T3V/vfs.file.exists[C:\test.txt])=0`
 * **Condition** : L'alerte se déclenche uniquement lorsque la valeur passe à 0 (fichier manquant).
@@ -112,7 +144,7 @@ Mise en place d'un déclencheur avec une sévérité "High". L'expression vérif
 ![Trigger](images/26a.png)
 ![Trigger](images/27a.png)
 
-### 3. Simulation d'Incident et Résolution
+### Simulation d'Incident et Résolution
 Test effectué sur la VM Windows :
 
 **Phase 1 : Incident**
