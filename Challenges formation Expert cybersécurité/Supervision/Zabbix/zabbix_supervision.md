@@ -2,16 +2,16 @@
 
 Configuration d'un conteneur Debian 12:
 
-Image 1
+![Conteneur](images/1a.png)
 
 
 Le ping vers le serveur Zabbix fonctionne bien :
 
-Image 2
+![Ping](images/2a.png)
 
 L'adresse IP est bien celle définie 10.0.0.90 :
 
-Image 3
+![IP](images/3a.png)
 
 Mise à jour du système:
 
@@ -20,38 +20,35 @@ apt upgrade -y
 
 Installation du service web:
 
-Image 4
-Image 5
+![Apache](images/4a.png)
+![Apache](images/5a.png)
 
 Le serveur client est bien accessible :
 
-Image 6
+![Serveur-client](images/6a.png)
 
-
-
-ETAPE 2
 
 Ajout du dépôt Zabbix :
 
-Image 7
+![Zabbix](images/7a.png)
 
-Image 8
+![Zabbix](images/8a.png)
 
-Image 9
+![Zabbix](images/9a.png)
 
 Installation de l'agent Zabbix 2 :
 
-Image 10
+![Agent](images/10a.png)
 
 Edition du fichier de configuration :
 
-Image 11
+![Configuration](images/11a.png)
 
-Image 12
+![Configuration](images/12a.png)
 
-Image 13
+![Configuration](images/13a.png)
 
-Image 14
+![Configuration](images/14a.png)
 
 '''systemctl restart zabbix-agent2'''
 '''systemctl enable zabbix-agent2'''
@@ -59,33 +56,38 @@ Image 14
 
 L'agent est bien démarré :
 
-Image 15
+![Agent](images/15a.png)
 
 L'agent attend bien les connexions :
 
-Image 16
+![Agent](images/16a.png)
+
 
 
 Déclarer le serveur client dans Zabbix, via l'interface :
 
-Image 17
+![Interface](images/17a.png)
+
 
 L'hote est bien disponible :
 
-Image 18
+![Hote](images/18a.png)
+
 
 Création d'un nouveau Dashboard :
 
-Image 19
+![Agent](images/19a.png)
 
-Image 20
+![Agent](images/20a.png)
+
 
 Ajout des widgets CPU, Mémoire, Disponibilité et Problèmes actifs :
 
-Image 21
-Image 22
-Image 23
-Image 24
+![Widgets](images/21a.png)
+![Widgets](images/22a.png)
+![Widgets](images/23a.png)
+![Widgets](images/24a.png)
+
 
 
 ## Surveillance Critique de Fichiers :
@@ -100,24 +102,24 @@ Création d'un item utilisant la clé native de l'agent Zabbix pour interroger l
 * **Logique** : Retourne `1` si le fichier est présent, `0` s'il est absent.
 * **Intervalle** : 30s pour une réactivité élevée (test).
 
-![Configuration de l'Item Zabbix](Image 25)
+![Item-Zabbix](images/25a.png)
 
 ### 2. Configuration du Trigger (L'Alerte)
 Mise en place d'un déclencheur avec une sévérité "High". L'expression vérifie la dernière valeur remontée par l'agent.
 * **Expression** : `last(/DESKTOP-ARH9T3V/vfs.file.exists[C:\test.txt])=0`
 * **Condition** : L'alerte se déclenche uniquement lorsque la valeur passe à 0 (fichier manquant).
 
-![Définition de la condition du Trigger](Image 26)
-![Finalisation du Trigger](Image 27)
+![Trigger](images/26a.png)
+![Trigger](images/27a.png)
 
 ### 3. Simulation d'Incident et Résolution
 Test effectué sur la VM Windows :
 
 **Phase 1 : Incident**
 Suppression manuelle du fichier cible. Zabbix détecte l'anomalie et passe le statut en **PROBLEM** (Sévérité High).
-![Déclenchement de l'alerte](Image 28)
+![Alerte](images/28a.png)
 
 **Phase 2 : Retour à la normale**
 Restauration du fichier. Zabbix détecte la présence du fichier au scan suivant et clôture automatiquement l'incident (**RESOLVED**).
-![Résolution automatique de l'incident](Image 29)
+![Resolved](images/29a.png)
 
