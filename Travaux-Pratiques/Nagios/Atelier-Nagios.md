@@ -89,7 +89,7 @@ Il est maintenant nécessaire d'installer les plugins.
 
 ![Plugins](images/27.png)
 
-````make```
+```make```
 
 ```make install```
 
