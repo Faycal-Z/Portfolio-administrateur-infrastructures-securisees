@@ -8,7 +8,7 @@
 
 # Etape 1 : Installation du Nagios Core
 
-## **Étape 1.1 : Mise à jour de votre système**
+## **Étape 1.1 : Mise à jour du système**
 
 ![Mise-a-jour](images/3.png)
 ![Mise-a-jour](images/4.png)
