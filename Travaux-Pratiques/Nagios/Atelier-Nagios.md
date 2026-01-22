@@ -1,6 +1,6 @@
 # Création des conteneurs Ubuntu :
 
-Image 1
+![Conteneur-Ubuntu](images/1.png)
 Image 2
 
 
