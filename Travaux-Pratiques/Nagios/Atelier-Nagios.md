@@ -89,8 +89,8 @@ Il est maintenant nécessaire d'installer les plugins.
 
 ![Plugins](images/27.png)
 
-`````make````
-````make install````
+````make```
+```make install```
 
 On voit la liste des fichiers exécutables : 
 
@@ -151,7 +151,7 @@ On modifie le fichier de configuration Nagios :
 
 ![Configuration-Nagios](images/43.png)
 
-Dans ````/usr/local/nagios/etc/nagios.cfg```` on décommente la ligne ````#cfg_dir=/usr/local/nagios/etc/servers```` :
+Dans ```/usr/local/nagios/etc/nagios.cfg``` on décommente la ligne ```#cfg_dir=/usr/local/nagios/etc/servers``` :
 
 ![Configuration-Nagios](images/44.png)
 
@@ -166,7 +166,7 @@ Apres autorisation du ping sur la machine Windows, le serveur Windows est bien a
 ![Windows](images/46.png)
 
 
-Étape 3 : Installation de l'Agent NCPA sur un Nouveau Serveur Ubuntu 24
+# Étape 3 : Installation de l'Agent NCPA sur un Nouveau Serveur Ubuntu 24
 
 ## 3.1 : Télécharger l'agent NCPA pour Ubuntu
 
