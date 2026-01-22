@@ -90,6 +90,7 @@ Il est maintenant nécessaire d'installer les plugins.
 ![Plugins](images/27.png)
 
 ````make```
+
 ```make install```
 
 On voit la liste des fichiers exécutables : 
