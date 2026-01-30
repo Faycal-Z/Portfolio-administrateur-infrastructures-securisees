@@ -265,103 +265,103 @@ Mise a jour du fichier CSV pour ajouter la colonne Goupes :
 
 ![](Images/49.png)
 
-Pour ajouter automatiquement les utilisateurs dans les groupes spécifiés on recupère d'abord les groupes et on les sépare avec un point virgule: $LesGroupes = $Utilisateur.Groupes -split ";"
+Pour ajouter automatiquement les utilisateurs dans les groupes spécifiés on recupère d'abord les groupes et on les sépare avec un point virgule: ```$LesGroupes = $Utilisateur.Groupes -split ";"```
 
-On boucle sur les groupes trouvés : foreach ($Groupe in $LesGroupes) {
+On boucle sur les groupes trouvés : ```foreach ($Groupe in $LesGroupes) {
         if ($Groupe -ne "") {
             Add-ADGroupMember -Identity $Groupe -Members $Login -ErrorAction SilentlyContinue
         }
-    }
+    }```
 
 
-Partie 6 : Scripts d'automatisation
+# Partie 6 : Scripts d'automatisation
 
 On ajoute les paramètres :
 
-Image 52
+![](Images/50.png)
 
 On crée le LOGIN:
 
-Image 53
+![](Images/51.png)
 
 On crée l'email:
 
-Image 54
+![](Images/52.png)
 
 On crée l'utilisateur dans la bonne OU selon le département:
 
-Image 55
+![](Images/53.png)
 
 On génère un mot de passe aléatoire sécurisé:
 
-Image 56
+![](Images/54.png)
 
 On créer l'utilisateur puis on l'ajoute au groupe selon le département:
 
-Image 57
+![](Images/55.png)
 
 On simule un envoi d'email de bienvenue:
 
-Image 58
+![](Images/56.png)
 
 Logger toutes les opérations:
 
-Image 59
+![](Images/57.png)
 
-6.2 - Script d'offboarding
+## 6.2 - Script d'offboarding
 
-Création de l'OU "Comptes Désactivés":
+Création de l'OU "Comptes Désactivés" via l'interface graphique:
 
-Image 60
+![](Images/58.png)
 
-6.2 - Script d'offboarding
+## 6.2 - Script d'offboarding
 
 Ajout du paramètre login de l'utilisateur et ajout des variables de destination:
 
-Image 61
+![](Images/59.png)
 
 On demande confirmation avant l'exécution du script:
 
-Image 62
+![](Images/60.png)
 
 On désactive le compte et on retire les utilisateurs de tous les groupes:
 
-Image 63
+![](Images/61.png)
 
 On déplace l'utilisateur ver le groupe "Desactives":
 
-Image 64
+![](Images/62.png)
 
 On réinitialise le mot de passe:
 
-Image 65
+![](Images/63.png)
 
 Ajout d'une note dans la description avec la date de désactivation:
 
-Image 66
+![](Images/64.png)
 
 Logger toutes les opérations:
 
-Image 67
+![](Images/65.png)
 
 Le script a bien fonctionné pour l'utilisateur Léa Garnier:
 
-Image 68
+![](Images/66.png)
 
 
-6.3 - Script de modification de mot de passe
+# 6.3 - Script de modification de mot de passe
 
 Ajout des paramètres, du fichier de log, et demande du mot de passe:
 
-Image 69
+![](Images/67.png)
 
 On applique le mot de passe, on déverrouille le compte et on force le changement:
 
-Image 70
+![](Images/68.png)
 
 Le script fonctionne bien :
 
-Image 71
+![](Images/69.png)
 
-Image 72
+![](Images/70.png)
 
