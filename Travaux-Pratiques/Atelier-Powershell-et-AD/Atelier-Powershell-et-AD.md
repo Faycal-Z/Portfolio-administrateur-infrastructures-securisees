@@ -239,37 +239,31 @@ Création du script :
 
 Le script a bien été executé et les utilisateurs crées :
 
-Image 48
+![](Images/48.png)
 
-Image 49
-
-Image 50
-
-
-5.3 - Améliorer le script avec gestion d'erreurs
+## 5.3 - Améliorer le script avec gestion d'erreurs
 
 On ajoute au script la vérification que le login existe déjà et on exporte les détails des erreurs vers un fichier de Log:
 
-- Dans la partie variable on ajoute le chemin du fichier de Log : $FichierLog = "C:\erreurs_import.txt"
+- Dans la partie variable on ajoute le chemin du fichier de Log : ```$FichierLog = "C:\erreurs_import.txt"```
 
-- On ajoute une condition pour que le fichier de Log soit vide au lancement du script en le supprimant s'il existe: if (Test-Path $FichierLog) { Remove-Item $FichierLog }
+- On ajoute une condition pour que le fichier de Log soit vide au lancement du script en le supprimant s'il existe: ```if (Test-Path $FichierLog) { Remove-Item $FichierLog }```
 
-- On crée une variable pour vérifier que l'utilisateur existe déjà : $ExisteDeja = Get-ADUser -Filter "SamAccountName -eq '$Login'" -ErrorAction SilentlyContinue
+- On crée une variable pour vérifier que l'utilisateur existe déjà : ```$ExisteDeja = Get-ADUser -Filter "SamAccountName -eq '$Login'" -ErrorAction SilentlyContinue```
 
-- On ajoute la condition au script pour afficher un message pour dire que l'on ignore cet utilisateur :  if ($ExisteDeja) {
+- On ajoute la condition au script pour afficher un message pour dire que l'on ignore cet utilisateur :  ```if ($ExisteDeja) {
         Write-Host "[EXISTE DÉJÀ] $NomComplet ($Login) est ignoré." -ForegroundColor Yellow
-    }
+    }```
 
-- On crée le message d'erreur et on l'ajoute au fichier de Log : Write-Host $MessageErreur -ForegroundColor Red
-	$MessageErreur | Out-File -FilePath $FichierLog -Append
-
+- On crée le message d'erreur et on l'ajoute au fichier de Log : ```Write-Host $MessageErreur -ForegroundColor Red
+	$MessageErreur | Out-File -FilePath $FichierLog -Append```
 
 	
-5.4 - Ajouter les groupes lors de l'import
+# 5.4 - Ajouter les groupes lors de l'import
 
 Mise a jour du fichier CSV pour ajouter la colonne Goupes :
 
-Image 51
+![](Images/49.png)
 
 Pour ajouter automatiquement les utilisateurs dans les groupes spécifiés on recupère d'abord les groupes et on les sépare avec un point virgule: $LesGroupes = $Utilisateur.Groupes -split ";"
 
