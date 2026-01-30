@@ -6,7 +6,7 @@ Le module AD n'est pas installé, donc on installe les outils d'administration!
 
 ![](Images/1.png)
 
-## 1.2 
+## 1.2 - Exploration du module
 
 Lister les cmdlets disponibles :
 
