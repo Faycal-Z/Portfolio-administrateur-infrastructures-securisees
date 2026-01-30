@@ -314,8 +314,6 @@ Création de l'OU "Comptes Désactivés" via l'interface graphique:
 
 ![](Images/58.png)
 
-## 6.2 - Script d'offboarding
-
 Ajout du paramètre login de l'utilisateur et ajout des variables de destination:
 
 ![](Images/59.png)
