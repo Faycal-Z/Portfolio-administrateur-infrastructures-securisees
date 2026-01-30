@@ -1,241 +1,239 @@
 # Partie 1
 
-1.1
+## 1.1 - Installation du module (si nécessaire)
 
 Le module AD n'est pas installé, donc on installe les outils d'administration!
 
-![](images/1.png)
+![](Images/1.png)
 
-1.2 
+## 1.2 
 
 Lister les cmdlets disponibles :
 
-![](images/2.png)
+![](Images/2.png)
 
 Listez uniquement les cmdlets qui commencent par Get-ADUser :
 
-![](images/3.png)
+![](Images/3.png)
 
 Affichage de l'aide :
 
-![](images/4.png)
+![](Images/4.png)
 
-1.3 - Connexion à l'Active Directory
+## 1.3 - Connexion à l'Active Directory
 
 Test de la connexion à l'AD :
 
-![](images/5.png)
+![](Images/5.png)
 
 Affichage du nom du domaine, du niveau fonctionnel et des contrôleurs de domaine:
 
-Image 6
+![](Images/6.png)
 
-1.4 - Premier utilisateur
+## 1.4 - Premier utilisateur
 
 Affichage de toutes les informations du compte utilisateur :
 
-Image 7
+![](Images/7.png)
 
 Affichage uniquement du nom, email et titre :
 
-Image 8
+![](Images/8.png)
 
-Partie 2 : Gestion des utilisateurs
+# Partie 2 : Gestion des utilisateurs
 
-2.1 - Créer des utilisateurs
+## 2.1 - Créer des utilisateurs
 
-Image 9
+![](Images/9.png)
 
 Puis on reproduit les mêmes manipulations pour les utilisateurs Bob et Claire:
 
-Image 10
+![](Images/10.png)
 
-2.2 - Rechercher des utilisateurs
+## 2.2 - Rechercher des utilisateurs
 
 Lister tous les utilisateurs du domaine, Alice, Bob et Claire apparaissent bien :
 
-Image 11
+![](Images/11.png)
 
 Trouver l'utilisateur dont le login est "amartin":
 
-Image 12
+![](Images/12.png)
 
 Trouver tous les utilisateurs dont le nom commence par "B":
 
-Image 13
+![](Images/13.png)
 
 Trouver tous les utilisateurs qui ont "Administrateur" dans leur titre:
 
-Image 14
+![](Images/14.png)
 
 Compter le nombre total d'utilisateurs dans le domaine:
 
-Image 15
+![](Images/15.png)
 
-2.3 - Modifier des utilisateurs
+## 2.3 - Modifier des utilisateurs
 
 Pour l'utilisateur "amartin", on change le numéro de téléphone, on ajoute une description et on change le titre via la commande Set-ADUser :
 
-Image 16
+![](Images/16.png)
 
 Les modifications ont bien été prises en compte:
 
-Image 17
+![](Images/17.png)
 
-2.4 - Désactiver et supprimer
+## 2.4 - Désactiver et supprimer
 
 Désactivation du compte "bdubois" :
 
-Image 18
+![](Images/18.png)
 
 Le compte est bien désactivé :
 
-Image 19
+![](Images/19.png)
 
 Suppression du compte "cbernard" :
 
-Image 20
+![](Images/20.png)
 
+# Partie 3 : Gestion des groupes
 
-Partie 3 : Gestion des groupes
-
-3.1 - Créer des groupes
+## 3.1 - Créer des groupes
 
 Création des groupes de sécurité :
 
-Image 21
+![](Images/21.png)
 
-3.2 - Ajouter des membres
+## 3.2 - Ajouter des membres
 
 Ajout de "amartin" dans le groupe "GRP_Developpeurs":
 
-Image 22
+![](Images/22.png)
 
 Ajout de "bdubois" dans le groupe "GRP_Admins_Systeme":
 
-Image 23
+![](Images/23.png)
 
 Ajout de tous les membres des trois premiers groupes dans "GRP_IT":
 
-Image 24
+![](Images/24.png)
 
-3.3 - Lister les appartenances
+# 3.3 - Lister les appartenances
 
 Affichage de tous les membres du groupe "GRP_IT":
 
-Image 25
+![](Images/25.png)
 
 Affichage de tous les groupes dont "amartin" est membre:
 
-Image 26
+![](Images/26.png)
 
 Compter combien de membres a chaque groupe:
 
 GRP_Developpeurs:
 
-Image 27
+![](Images/27.png)
 
 GRP_Admins_Systeme: 
 
-Image 28
+![](Images/28.png)
 
 GRP_Chefs_Projet, on constate que Claire Bernard n'est plus dans le groupe car cet utilisateur a été supprimé:
 
-Image 29
+![](Images/29.png)
 
 GRP_IT:
 
-Image 30
+![](Images/30.png)
 
-3.4 - Retirer des membres
+## 3.4 - Retirer des membres
 
 On retire "amartin" du groupe "GRP_IT":
 
-Image 31
+![](Images/31.png)
 
 Elle n'est plus membre du groupe :
 
-Image 32
+![](Images/32.png)
 
-3.5 - Groupes imbriqués
+## 3.5 - Groupes imbriqués
 
 Création du groupe "GRP_Tous_Utilisateurs":
 
-Image 33
+![](Images/33.png)
 
 On ajoute les groupes "GRP_IT":
 
-Image 34
+![](Images/34.png)
 
 Liste des membres (directs et récursifs) de "GRP_Tous_Utilisateurs":
 
 Membres directs:
 
-Image 35
+![](Images/35.png)
 
 Membres récursifs:
 
-Image 36
+![](Images/36.png)
 
 
-Partie 4 : Organisation avec les Unités Organisationnelles (OU)
+# Partie 4 : Organisation avec les Unités Organisationnelles (OU)
 
-4.1 - Créer une structure d'où
+## 4.1 - Créer une structure d'où
 
 - On créer l'OU à la racine:
 
-Image 37
+![](Images/37.png)
 
 - Création des sous dossiers Utilisateurs, Groupes, et Ordinateurs:
 
-Image 38
+![](Images/38.png)
 
 Création des sous dossiers Informatique, RH, et Commercial dans Utilisateurs:
 
-Image 39
-
+![](Images/39.png)
 
 Création des sous dossier Développement et Infrastructure dans Informatique.
 
-Image 40
+![](Images/40.png)
 
 Les groupes ont bien été crées : 
 
-Image 41
+![](Images/41.png)
 
-4.2 - Déplacer des objets
+## 4.2 - Déplacer des objets
 
 On déplace l'utilisateur "amartin" dans l'OU "TechSecure/Utilisateurs/Informatique/Developpement" et on déplace tous vos groupes créés précédemment dans l'OU "TechSecure/Groupes" :
 
-Image 42
+![](Images/42.png)
 
 Liste de tous les utilisateurs présents dans l'OU "Informatique" (incluant les sous-OU), on constate que l'utilisateur Alice est bien présent:
 
-Image 43
+![](Images/43.png)
 
-4.3 - Recherche par OU
+# 4.3 - Recherche par OU
 
 Nombre d'utilisateurs dans l'OU "Informatique" uniquement:
 
-Image 44
+![](Images/44.png)
 
 On constate qu'il n'y a aucun utilisateur dans le dossier informatique, car Alice a été déplacée précédemment dans le groupe Développement.
 
 Nombre d'utilisateurs dans l'OU "Informatique" en incluant tous les sous-niveaux et donc celui d'en dessous (Développement ou se trouve désormais Alice). On utilise Substree mais c'est optionnel :
 
-Image 45
+![](Images/45.png)
 
-Partie 5 : Import en masse depuis CSV
+# Partie 5 : Import en masse depuis CSV
 
-5.1 - Préparer le fichier CSV
+## 5.1 - Préparer le fichier CSV
 
-Image 46
+![](Images/46.png)
 
 Le fichier .csv est bien crée :
 
-Image 47
+![](Images/47.png)
 
-5.2 - Script d'import basique
+## 5.2 - Script d'import basique
 
 Création du script :
 
