@@ -60,7 +60,7 @@ Trouver l'utilisateur dont le login est "amartin":
 
 ![](Images/12.png)
 
-Trouver tous les utilisateurs dont le nom commence par "B":
+Trouver tous les utilisateurs dont le prénom commence par "B":
 
 ![](Images/13.png)
 
