@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Ajout des couleurs
 VERT="\e[32m"
 JAUNE="\e[33m"
@@ -45,9 +47,35 @@ MEM_PERCENT=$(free | grep Mem | awk '{printf("%.2f", $3/$2 * 100.0)}')
 COLOR_MEM=$(afficher_couleur "$MEM_PERCENT")
 echo -e "Mémoire   : $MEM_USED / $MEM_TOTAL ($COLOR_MEM)"
 
-#Utilisation de chaque partition
-df -h | grep -vE '^Filesystem|tmpfs|cdrom|udev|loop' | awk '{ print $5 " " $1 }'
+#Stockage du disque dans variable
+DISK_USAGE=$(df -h | grep -vE '^Filesystem|tmpfs|cdrom|udev|loop' | awk '{ print $5 " " $1 }')
+echo "Disque: "
+echo "$DISK_USAGE"
 
 #Nombre de processus en cours d'exécution
 PROCESS_COUNT=$(ps -e | wc -l)
 echo "Processus en cours : $PROCESS_COUNT"
+
+#Création du rapport
+if [ "$1" == "-r" ]; then
+    # Nom du fichier avec date 
+    FICHIER_LOG="/var/log/monitor_$(date +%Y%m%d).txt"
+
+    {
+        echo "=================================="
+        echo "   MONITOR - $(date)"
+        echo "=================================="
+        echo "Serveur   : $(hostname)"
+        echo "Uptime    : $(uptime -p)"
+        echo "CPU Usage : $CPU_USAGE%"
+        echo "Mémoire   : $MEM_USED / $MEM_TOTAL ($MEM_PERCENT%)"
+        echo "----------------------------------"
+        echo "Disque :"
+        echo "$DISK_USAGE"
+        echo "----------------------------------"
+        echo "Processus : $PROCESS_COUNT"
+    } > "$FICHIER_LOG"
+
+    #Message de confirmation
+    echo -e "${VERT} Rapport sauvegardé dans : $FICHIER_LOG${RESET}"
+fi
