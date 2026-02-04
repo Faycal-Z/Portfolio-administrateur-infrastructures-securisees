@@ -6,7 +6,7 @@
 
 ## 1.1 - Création du script
 
-Image 1
+![](images/1.png)
 
 ## 1.2 - Amélioration du script
 
@@ -145,5 +145,6 @@ Image 29
 # Partie 6 : Outil centralisé de gestion
 
 Image 29
+
 
 
