@@ -52,5 +52,24 @@ else
     exit 1
 fi
 
+#Récupération des anciens fichiers
+VIEUX_BACKUPS=$(ls -1t "$DESTINATION"/backup_*.tar.gz 2>/dev/null | tail -n +8)
+
+#Vérification de la liste et rotation des sauvegardes
+if [ -n "$VIEUX_BACKUPS" ]; then
+   
+    NOMBRE=$(echo "$VIEUX_BACKUPS" | wc -l)
+    
+    log_message "ROTATION : Suppression de $NOMBRE ancienne(s) sauvegarde(s)..."
+
+    #Suppression des anciens backup
+    echo "$VIEUX_BACKUPS" | xargs rm -f
+    
+    log_message "Nettoyage terminé."
+else
+    log_message "ROTATION : Pas de suppression nécessaire (moins de 7 sauvegardes)."
+fi
+
+
 
 
