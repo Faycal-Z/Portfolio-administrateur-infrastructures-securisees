@@ -56,6 +56,14 @@ echo "$DISK_USAGE"
 PROCESS_COUNT=$(ps -e | wc -l)
 echo "Processus en cours : $PROCESS_COUNT"
 
+#Récupération des 5 processus qui consomment le plus et affichage
+TOP_CPU_LIST=$(ps -eo %cpu,%mem,cmd --sort=-%cpu | head -n 6)
+TOP_MEM_LIST=$(ps -eo %mem,%cpu,cmd --sort=-%mem | head -n 6)
+echo "TOP 5 CPU"
+echo "$TOP_CPU_LIST"
+echo "Top 5 RAM"
+echo "$TOP_MEM_LIST"
+
 #Création du rapport
 if [ "$1" == "-r" ]; then
     # Nom du fichier avec date 
@@ -74,6 +82,11 @@ if [ "$1" == "-r" ]; then
         echo "$DISK_USAGE"
         echo "----------------------------------"
         echo "Processus : $PROCESS_COUNT"
+        #Ajout TOP 5 CPU et RAM
+        echo "TOP 5 CPU :"
+        echo "$TOP_CPU_LIST"
+        echo "TOP 5 RAM :"
+        echo "$TOP_MEM_LIST"
     } > "$FICHIER_LOG"
 
     #Message de confirmation
