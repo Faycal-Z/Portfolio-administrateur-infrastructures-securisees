@@ -42,3 +42,28 @@ Image 8
 
 # Étape 4 — Création de la base de données Nextcloud
 
+sudo mysql -u root -p
+
+On execute les commandes SQL pour définir un mot de passe.
+
+# Étape 5 — Téléchargement de Nextcloud
+
+## 5.1 — Récupérer la dernière version
+
+Image 9
+
+## 5.2 — Extraire et déplacer
+
+```unzip latest.zip```
+```sudo mv nextcloud /var/www/html/nextcloud```
+
+## 5.3 — Créer le répertoire de données
+
+Image 10
+
+## 5.4 — Appliquer les permissions
+
+Image 11
+
+
+
