@@ -81,3 +81,54 @@ Image 14
 
 # Étape 7 — Configuration PHP recommandée
 
+```sudo nano /etc/php/8.3/apache2/php.ini```
+
+On modifie les valeurs pour s'adapter aux besoin de l'organisme:
+
+Image 15
+Image 16
+Image 17
+Image 18
+Image 19
+
+Puis on redémarre le serveur.
+
+# Étape 8 — Installation de Nextcloud via le navigateur
+
+## 8.1 — Accéder à l'interface et remplir le formulaire d'installation
+
+Image 20
+Image 21
+
+# Étape 9 — Optimisations post-installation
+
+## 9.1 — Configurer le cache mémoire (APCu + Redis)
+
+Installation de Redis :
+
+```sudo apt install redis-server -y```
+
+Image 22
+
+Édition de la configuration Nextcloud pour utiliser ce cache :
+
+```sudo nano /var/www/html/nextcloud/config/config.php```
+
+Image 23
+
+# 9.2 — Configurer le CRON
+
+```sudo crontab -u www-data -e```
+Ajout de la tache planifiée toutes les 5 minutes :
+
+Image 24
+
+Dans l'interface :
+Image 25
+
+# 9.3 — Ajouter les domaines de confiance
+
+
+
+
+
