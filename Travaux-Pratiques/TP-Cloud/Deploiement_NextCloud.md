@@ -126,7 +126,42 @@ Image 24
 Dans l'interface :
 Image 25
 
-# 9.3 — Ajouter les domaines de confiance
+# Étape 10 — Installation des applications requises
+
+Installation des applications Desk et Tasks, les autres applications étants déja installées.
+
+# Étape 11 — Création des groupes
+
+Création des 5 groupes :
+
+Image 26
+
+# Étape 12 — Création des 15 utilisateurs
+
+Création du compte, alice.martin, on fera la meme chsoe pour les autres utilisateurs :
+
+Image 27
+
+# Étape 13 — Création de l'arborescence de dossiers partagés
+
+## 13.1 — Créer les dossiers racines
+
+Image 28
+Puis on crée tous les sous-dossiers.
+
+## 13.3 — Configurer les partages et permissions
+
+Image 29
+
+On procède de la meme manière pour les différents partages en fonction des autorisations.
+
+Par exemple pour le groupe Développement :
+
+Image 30
+
+# Étape 14 — Configuration des conversations Talk
+
+
 
 
 
