@@ -213,6 +213,59 @@ Image 41
 
 # Étape 16 — Création du board Kanban (Deck)
 
+Création du tableau et partage aux différents groupes :
+
+Image 42
+
+Image 43
+
+Image 44
+
+# Étape 17 — Sécurisation (bonnes pratiques)
+
+## 17.1 — Politique de mots de passe
+
+Image 45
+
+## 17.2 — Partage externe sécurisé
+
+Image 46
+
+Image 47
+
+## Étape 18 — Tests de validation
+### Test 1 — Isolation des permissions
+Le compte hannah.prof a bien accès uniquement au dossier Pédagogie et au dossier commun :
+
+Image 48
+
+### Test 2 — Co-édition bureautique
+Les modifications apparaissent bien en temps réel.
+
+### Test 3 — Partage externe avec mot de passe
+Création du lien de partage :
+
+Image 49
+
+Le partage fonctionne bien :
+
+Image 50
+
+Image 51
+
+### Test 4 — Visioconférence
+
+La visio conférence fontionne, son et audio.
+
+### Test 5 — Calendrier partagé
+
+Création de l'évenement :
+
+Image 52
+
+L'évenement est bien visible par un autre utilisateur :
+
+Image 53
 
 
 
