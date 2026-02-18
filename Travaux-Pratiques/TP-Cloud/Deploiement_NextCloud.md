@@ -21,6 +21,24 @@ Image 5
 
 ```sudo apt install php php-apcu php-bcmath php-cli php-common php-curl php-gd php-gmp php-imagick php-intl php-mbstring php-mysql php-xml php-zip php-redis php-bz2 libapache2-mod-php -y```
 
+Image 6
+
+## 2.3 — Serveur de base de données MariaDB
+
+```sudo apt install mariadb-server -y```
+```sudo systemctl enable mariadb```
+```sudo systemctl start mariadb```
+
+Image 7
+
+## 2.4 — Outils complémentaires
+
+```sudo apt install unzip curl wget sudo -y```
 
 
+# Étape 3 — Sécurisation de MariaDB
+
+Image 8
+
+# Étape 4 — Création de la base de données Nextcloud
 
