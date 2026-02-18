@@ -1,8 +1,8 @@
 # Etape 1 : Installation de la VM Ubuntu et mise à jour du système
 
-Image 1
-Image 2
-Image 3
+![](images/1.png)
+![](images/2.png)
+![](images/3.png)
 
 Mise à jour du systeme puis redémarrage via ```sudo apt update && sudo apt upgrade -y```
 puis ```sudo reboot```
@@ -14,14 +14,14 @@ puis ```sudo reboot```
 ```sudo systemctl enable apache2```
 ```sudo systemctl start apache2```
 
-Image 4
-Image 5
+![](images/4.png)
+![](images/5.png)
 
 ## 2.2 — PHP et ses extensions
 
 ```sudo apt install php php-apcu php-bcmath php-cli php-common php-curl php-gd php-gmp php-imagick php-intl php-mbstring php-mysql php-xml php-zip php-redis php-bz2 libapache2-mod-php -y```
 
-Image 6
+![](images/6.png)
 
 ## 2.3 — Serveur de base de données MariaDB
 
@@ -29,7 +29,7 @@ Image 6
 ```sudo systemctl enable mariadb```
 ```sudo systemctl start mariadb```
 
-Image 7
+![](images/7.png)
 
 ## 2.4 — Outils complémentaires
 
@@ -38,7 +38,7 @@ Image 7
 
 # Étape 3 — Sécurisation de MariaDB
 
-Image 8
+![](images/8.png)
 
 # Étape 4 — Création de la base de données Nextcloud
 
@@ -50,7 +50,7 @@ On execute les commandes SQL pour définir un mot de passe.
 
 ## 5.1 — Récupérer la dernière version
 
-Image 9
+![](images/9.png)
 
 ## 5.2 — Extraire et déplacer
 
@@ -59,11 +59,11 @@ Image 9
 
 ## 5.3 — Créer le répertoire de données
 
-Image 10
+![](images/10.png)
 
 ## 5.4 — Appliquer les permissions
 
-Image 11
+![](images/11.png)
 
 # Étape 6 — Configuration d'Apache
 
@@ -71,13 +71,13 @@ Image 11
 Création du fichier de configuration:
 ```sudo nano /etc/apache2/sites-available/nextcloud.conf```
 
-Image 12
+![](images/12.png)
 
 ## 6.2 — Activer le site et les modules nécessaires
 
-Image 13
+![](images/13.png)
 
-Image 14
+![](images/14.png)
 
 # Étape 7 — Configuration PHP recommandée
 
@@ -85,11 +85,11 @@ Image 14
 
 On modifie les valeurs pour s'adapter aux besoin de l'organisme:
 
-Image 15
-Image 16
-Image 17
-Image 18
-Image 19
+![](images/15.png)
+![](images/16.png)
+![](images/17.png)
+![](images/18.png)
+![](images/19.png)
 
 Puis on redémarre le serveur.
 
@@ -97,8 +97,8 @@ Puis on redémarre le serveur.
 
 ## 8.1 — Accéder à l'interface et remplir le formulaire d'installation
 
-Image 20
-Image 21
+![](images/20.png)
+![](images/21.png)
 
 # Étape 9 — Optimisations post-installation
 
@@ -108,23 +108,24 @@ Installation de Redis :
 
 ```sudo apt install redis-server -y```
 
-Image 22
+![](images/22.png)
 
 Édition de la configuration Nextcloud pour utiliser ce cache :
 
 ```sudo nano /var/www/html/nextcloud/config/config.php```
 
-Image 23
+![](images/23.png)
 
 # 9.2 — Configurer le CRON
 
 ```sudo crontab -u www-data -e```
 Ajout de la tache planifiée toutes les 5 minutes :
 
-Image 24
+![](images/24.png)
 
 Dans l'interface :
-Image 25
+
+![](images/25.png)
 
 # Étape 10 — Installation des applications requises
 
@@ -134,48 +135,49 @@ Installation des applications Desk et Tasks, les autres applications étants dé
 
 Création des 5 groupes :
 
-Image 26
+![](images/26.png)
 
 # Étape 12 — Création des 15 utilisateurs
 
 Création du compte, alice.martin, on fera la meme chsoe pour les autres utilisateurs :
 
-Image 27
+![](images/27.png)
 
 # Étape 13 — Création de l'arborescence de dossiers partagés
 
 ## 13.1 — Créer les dossiers racines
 
-Image 28
+![](images/28.png)
+
 Puis on crée tous les sous-dossiers.
 
 ## 13.3 — Configurer les partages et permissions
 
-Image 29
+![](images/29.png)
 
 On procède de la meme manière pour les différents partages en fonction des autorisations.
 
 Par exemple pour le groupe Développement :
 
-Image 30
+![](images/30.png)
 
 # Étape 14 — Configuration des conversations Talk
 
 - Création de la conversation Général EduLearn :
 
-Image 31
+![](images/31.png)
 
 - Conversation Equipe Dev:
   
-Image 32
+![](images/32.png)
 
 - Conversation Equipe Pédagogie:
 
-Image 33
+![](images/33.png)
 
 - Conversation Direction :
 
-Image 34
+![](images/34.png)
 
 # Étape 15 — Création des calendriers partagés
 
@@ -183,75 +185,78 @@ Image 34
 
 Dans Agenda, créer nouvel agenda:
 
-Image 35
+![](images/35.png)
 
 ## 15.2 — Configurer les partages
 
 - Partage Réunions Equipe :
 
-Image 36
+![](images/36.png)
 
 - Congés et Absences :
 
-Image 37
+![](images/37.png)
 
 - Événements Marketing :
-- 
-Image 38
+
+![](images/38.png)
 
 # 15.3 — Créer les événements test
 
 - Daily Standup Dev :
 
-Image 39
+![](images/39.png)
 
-Image 40
+![](images/40.png)
 
 - Rétrospective Sprint :
   
-Image 41
+![](images/41.png)
 
 # Étape 16 — Création du board Kanban (Deck)
 
 Création du tableau et partage aux différents groupes :
 
-Image 42
+![](images/42.png)
 
-Image 43
+![](images/43.png)
 
-Image 44
+![](images/44.png)
 
 # Étape 17 — Sécurisation (bonnes pratiques)
 
 ## 17.1 — Politique de mots de passe
 
-Image 45
+![](images/45.png)
 
 ## 17.2 — Partage externe sécurisé
 
-Image 46
+![](images/46.png)
 
-Image 47
+![](images/47.png)
 
 ## Étape 18 — Tests de validation
+
 ### Test 1 — Isolation des permissions
+
 Le compte hannah.prof a bien accès uniquement au dossier Pédagogie et au dossier commun :
 
-Image 48
+![](images/48.png)
 
 ### Test 2 — Co-édition bureautique
+
 Les modifications apparaissent bien en temps réel.
 
 ### Test 3 — Partage externe avec mot de passe
 Création du lien de partage :
 
-Image 49
+![](images/49.png)
 
 Le partage fonctionne bien :
 
-Image 50
+![](images/50.png)
 
-Image 51
+![](images/51.png)
 
 ### Test 4 — Visioconférence
 
@@ -261,11 +266,11 @@ La visio conférence fontionne, son et audio.
 
 Création de l'évenement :
 
-Image 52
+![](images/52.png)
 
 L'évenement est bien visible par un autre utilisateur :
 
-Image 53
+![](images/53.png)
 
 
 
