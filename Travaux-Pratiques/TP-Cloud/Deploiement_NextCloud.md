@@ -179,9 +179,42 @@ Image 34
 
 # Étape 15 — Création des calendriers partagés
 
+## 15.1 — Créer les calendriers
+
 Dans Agenda, créer nouvel agenda:
 
 Image 35
+
+## 15.2 — Configurer les partages
+
+- Partage Réunions Equipe :
+
+Image 36
+
+- Congés et Absences :
+
+Image 37
+
+- Événements Marketing :
+- 
+Image 38
+
+# 15.3 — Créer les événements test
+
+- Daily Standup Dev :
+
+Image 39
+
+Image 40
+
+- Rétrospective Sprint :
+  
+Image 41
+
+# Étape 16 — Création du board Kanban (Deck)
+
+
+
 
 
 
