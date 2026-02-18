@@ -161,6 +161,28 @@ Image 30
 
 # Étape 14 — Configuration des conversations Talk
 
+- Création de la conversation Général EduLearn :
+
+Image 31
+
+- Conversation Equipe Dev:
+  
+Image 32
+
+- Conversation Equipe Pédagogie:
+
+Image 33
+
+- Conversation Direction :
+
+Image 34
+
+# Étape 15 — Création des calendriers partagés
+
+Dans Agenda, créer nouvel agenda:
+
+Image 35
+
 
 
 
