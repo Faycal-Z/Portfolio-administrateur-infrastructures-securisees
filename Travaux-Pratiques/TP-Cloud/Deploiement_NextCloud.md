@@ -65,5 +65,19 @@ Image 10
 
 Image 11
 
+# Étape 6 — Configuration d'Apache
 
+## 6.1 — Créer le VirtualHost Nextcloud
+Création du fichier de configuration:
+```sudo nano /etc/apache2/sites-available/nextcloud.conf```
+
+Image 12
+
+## 6.2 — Activer le site et les modules nécessaires
+
+Image 13
+
+Image 14
+
+# Étape 7 — Configuration PHP recommandée
 
