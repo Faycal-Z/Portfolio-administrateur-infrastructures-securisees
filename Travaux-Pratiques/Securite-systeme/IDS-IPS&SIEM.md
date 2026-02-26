@@ -62,6 +62,36 @@ Image 12
 
 Étape 3.3 : Configurer le réseau
 
+Image 13
+
+Les ping fonctionnent :
+
+Image 14
+
+Étape 3.4 : Installer Wazuh (tout-en-un)
+
+```su -```
+```curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh```
+```sudo bash ./wazuh-install.sh -a```
+
+image 15
+
+Étape 3.5 : Vérifier les services
+
+Image 16
+
+Image 17
+
+Iamge 18
+
+Étape 3.6 : Accéder à l'interface web
+
+Image 19
+
+Étape 4 : Connecter les sources
+
+Étape 4.1 : Installer l'agent Wazuh sur Suricata
+
 
 
 
