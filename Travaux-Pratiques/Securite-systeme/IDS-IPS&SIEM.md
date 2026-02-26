@@ -190,6 +190,8 @@ L'alerte est bien présente dans le dashboard wazuh :
 
 ![](images/37.png)
 
+![](images/38.png)
+
 
 
 
