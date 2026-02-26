@@ -58,6 +58,11 @@ Image 11
 
 Étape 3 : Installer Wazuh (SIEM)
 
+Image 12
+
+Étape 3.3 : Configurer le réseau
+
+
 
 
 
