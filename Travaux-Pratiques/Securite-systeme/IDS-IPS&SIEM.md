@@ -92,6 +92,35 @@ Image 19
 
 Étape 4.1 : Installer l'agent Wazuh sur Suricata
 
+```apt install gpg -y```
+
+```curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/wazuh.gpg --import && chmod 644 /usr/share/keyrings/wazuh.gpg```
+
+```echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt/ stable main" | tee /etc/apt/sources.list.d/wazuh.list```
+
+```apt update```
+
+```WAZUH_MANAGER="10.0.0.40" apt install -y wazuh-agent```
+
+Activation et démarrage de l'agent :
+
+Image 20
+
+Étape 4.2 : Vérifier la connexion de l'agent
+
+Image 21
+
+Image 22
+
+Étape 4.3 : Configurer la collecte des logs Suricata
+
+Configuration de l'agent :
+
+```nano /var/ossec/etc/ossec.conf```
+
+Image 23
+
+
 
 
 
