@@ -35,6 +35,30 @@ Image 7
 
 Étape 2.1 : Déclencher une règle connue
 
+```apt install curl -y```
+```curl http://testmynids.org/uid/index.html```
+
+Image 8
+
+Étape 2.2 : Vérifier l'alerte dans les logs
+
+Installation de jq :
+
+Image 9
+
+Verification des alertes :
+
+```cat /var/log/suricata/eve.json | jq 'select(.event_type=="alert")'```
+
+Image 10
+
+Log simplifié :
+
+Image 11
+
+Étape 3 : Installer Wazuh (SIEM)
+
+
 
 
 
