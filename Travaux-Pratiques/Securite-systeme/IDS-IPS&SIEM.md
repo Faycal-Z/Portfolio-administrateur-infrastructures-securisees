@@ -149,6 +149,44 @@ La chaine de detection est bien complète :
 
 Image 30
 
+Bonus : Règle personnalisée et corrélation
+B.1 : Créer une règle Suricata personnalisée
+
+Image 31
+
+B.2 : Activer la règle
+
+```nano /etc/suricata/suricata.yaml```
+
+Image 32
+
+```systemctl restart suricata```
+
+Image 33
+
+B.3 : Déclencher la règle personnalisée
+
+On envoi une requete de puis une machine windows :
+
+```curl http://10.0.0.50/SuperSecret2025```
+
+L'alerte est bien déclanchée dans suricata:
+
+Image 34
+
+B.4 : Vérifier dans Suricata
+
+```cat /var/log/suricata/eve.json | jq 'select(.alert.signature_id==1000001)'```
+
+Image 35
+
+B.5 : Vérifier la corrélation dans Wazuh
+
+L'alerte est bien présente dans le dashboard wazuh :
+
+Image 36
+
+
 
 
 
