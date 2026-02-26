@@ -1,96 +1,98 @@
-Étape 1 : Installer Suricata (IDS/IPS)
+# Étape 1 : Installer Suricata (IDS/IPS)
 
 Créer la machine Suricata (CT) :
 
-Image 1
+![](images/1.png)
 
 Mise à jour et installation de suricata :
 
 ```apt update && apt upgrade -y```
 ```apt install -y suricata suricata-update```
 
-Image 2
+![](images/2.png)
 
-Étape 1.5 : Configurer Suricata
+## Étape 1.5 : Configurer Suricata
 
 ```nano /etc/suricata/suricata.yaml```
 
-Image 3
+![](images/3.png)
 
-Image 4
+![](images/4.png)
 
-Étape 1.6 : Télécharger les règles
+![](images/5.png)
+
+## Étape 1.6 : Télécharger les règles
 
 ```suricata-update```
 
-Image 5
+![](images/6.png)
 
 Étape 1.7 : Démarrer Suricata
 
-Image 6
+![](images/7.png)
 
-Image 7
+# Étape 2 : Générer un événement de test
 
-Étape 2 : Générer un événement de test
-
-Étape 2.1 : Déclencher une règle connue
+## Étape 2.1 : Déclencher une règle connue
 
 ```apt install curl -y```
 ```curl http://testmynids.org/uid/index.html```
 
-Image 8
+![](images/9.png)
 
-Étape 2.2 : Vérifier l'alerte dans les logs
+![](images/8.png)
+
+## Étape 2.2 : Vérifier l'alerte dans les logs
 
 Installation de jq :
 
-Image 9
+![](images/10.png)
 
 Verification des alertes :
 
 ```cat /var/log/suricata/eve.json | jq 'select(.event_type=="alert")'```
 
-Image 10
+![](images/11.png)
 
 Log simplifié :
 
-Image 11
+![](images/12.png)
 
-Étape 3 : Installer Wazuh (SIEM)
+# Étape 3 : Installer Wazuh (SIEM)
 
-Image 12
+![](images/13.png)
 
-Étape 3.3 : Configurer le réseau
+## Étape 3.3 : Configurer le réseau
 
-Image 13
+![](images/14.png)
 
 Les ping fonctionnent :
 
-Image 14
+![](images/15.png)
 
-Étape 3.4 : Installer Wazuh (tout-en-un)
+## Étape 3.4 : Installer Wazuh (tout-en-un)
 
 ```su -```
 ```curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh```
 ```sudo bash ./wazuh-install.sh -a```
 
-image 15
+![](images/16.png)
 
-Étape 3.5 : Vérifier les services
+## Étape 3.5 : Vérifier les services
 
-Image 16
+![](images/17.png)
 
-Image 17
+![](images/18.png)
 
-Iamge 18
+![](images/19.png)
 
-Étape 3.6 : Accéder à l'interface web
+## Étape 3.6 : Accéder à l'interface web
 
-Image 19
+![](images/20.png)
 
-Étape 4 : Connecter les sources
+# Étape 4 : Connecter les sources
 
-Étape 4.1 : Installer l'agent Wazuh sur Suricata
+## Étape 4.1 : Installer l'agent Wazuh sur Suricata
 
 ```apt install gpg -y```
 
@@ -104,67 +106,69 @@ Image 19
 
 Activation et démarrage de l'agent :
 
-Image 20
+![](images/21.png)
 
-Étape 4.2 : Vérifier la connexion de l'agent
+## Étape 4.2 : Vérifier la connexion de l'agent
 
-Image 21
+![](images/22.png)
 
-Image 22
+![](images/23.png)
 
-Étape 4.3 : Configurer la collecte des logs Suricata
+## Étape 4.3 : Configurer la collecte des logs Suricata
 
 Configuration de l'agent :
 
 ```nano /var/ossec/etc/ossec.conf```
 
-Image 23
+![](images/24.png)
 
-Image 24
+![](images/25.png)
 
-Étape 4.5 : (Optionnel) Installer un agent sur Win11
+## Étape 4.5 : (Optionnel) Installer un agent sur Win11
 
 Téléchargement de l'agent :
 
-Image 25
+![](images/26.png)
 
-Image 26
+![](images/27.png)
 
-Image 27
+![](images/28.png)
 
-Étape 5 : Valider la détection de bout en bout
-Étape 5.1 : Provoquer un événement de test
+# Étape 5 : Valider la détection de bout en bout
 
-Image 28
+## Étape 5.1 : Provoquer un événement de test
 
-Étape 5.2 : Vérifier l'alerte locale (Suricata)
+![](images/29.png)
+
+## Étape 5.2 : Vérifier l'alerte locale (Suricata)
 
 L'alerte est bien présente :
 
-Image 29
+![](images/30.png)
 
-Étape 5.3 : Vérifier l'alerte dans Wazuh
+## Étape 5.3 : Vérifier l'alerte dans Wazuh
 
 La chaine de detection est bien complète :
 
-Image 30
+![](images/31.png)
 
-Bonus : Règle personnalisée et corrélation
-B.1 : Créer une règle Suricata personnalisée
+# Bonus : Règle personnalisée et corrélation
 
-Image 31
+## B.1 : Créer une règle Suricata personnalisée
 
-B.2 : Activer la règle
+![](images/32.png)
+
+## B.2 : Activer la règle
 
 ```nano /etc/suricata/suricata.yaml```
 
-Image 32
+![](images/33.png)
 
 ```systemctl restart suricata```
 
-Image 33
+![](images/34.png)
 
-B.3 : Déclencher la règle personnalisée
+## B.3 : Déclencher la règle personnalisée
 
 On envoi une requete de puis une machine windows :
 
@@ -172,19 +176,19 @@ On envoi une requete de puis une machine windows :
 
 L'alerte est bien déclanchée dans suricata:
 
-Image 34
+![](images/35.png)
 
-B.4 : Vérifier dans Suricata
+## B.4 : Vérifier dans Suricata
 
 ```cat /var/log/suricata/eve.json | jq 'select(.alert.signature_id==1000001)'```
 
-Image 35
+![](images/36.png)
 
-B.5 : Vérifier la corrélation dans Wazuh
+## B.5 : Vérifier la corrélation dans Wazuh
 
 L'alerte est bien présente dans le dashboard wazuh :
 
-Image 36
+![](images/37.png)
 
 
 
