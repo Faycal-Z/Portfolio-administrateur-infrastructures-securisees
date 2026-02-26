@@ -120,6 +120,35 @@ Configuration de l'agent :
 
 Image 23
 
+Image 24
+
+Étape 4.5 : (Optionnel) Installer un agent sur Win11
+
+Téléchargement de l'agent :
+
+Image 25
+
+Image 26
+
+Image 27
+
+Étape 5 : Valider la détection de bout en bout
+Étape 5.1 : Provoquer un événement de test
+
+Image 28
+
+Étape 5.2 : Vérifier l'alerte locale (Suricata)
+
+L'alerte est bien présente :
+
+Image 29
+
+Étape 5.3 : Vérifier l'alerte dans Wazuh
+
+La chaine de detection est bien complète :
+
+Image 30
+
 
 
 
